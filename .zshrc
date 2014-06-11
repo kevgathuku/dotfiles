@@ -76,4 +76,4 @@ export ARCHFLAGS="-arch x86_64"
 alias targ="tar zxf "
 alias tarz="tar jxf "
 alias dropbox="/home/kevin/.dropbox-dist/dropboxd"
-
+alias pip="pip2"
