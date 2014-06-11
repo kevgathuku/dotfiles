@@ -58,7 +58,7 @@ export PATH="/home/kevin/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -68,10 +68,10 @@ export PATH="/home/kevin/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 alias targ="tar zxf "
 alias tarz="tar jxf "
