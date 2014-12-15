@@ -48,7 +48,7 @@ ZSH_THEME="gentoo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python pip django sublime virtualenvwrapper)
+plugins=(git python pip django sublime git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,4 +76,62 @@ export ARCHFLAGS="-arch x86_64"
 alias targ="tar zxf "
 alias tarz="tar jxf "
 alias dropbox="/home/kevin/.dropbox-dist/dropboxd"
-alias pip="pip2"
+alias gdh="git diff HEAD"
+alias gds="git diff --staged -M"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source ~/.profile
+unalias heroku
+
+#Virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Development
+source /usr/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+
+#Python Docs
+export PYTHONDOCS=/usr/share/doc/python2/html/
+
+#Wine
+export WINEPREFIX=.wine # any path to a writable folder on your home directory will do
+export WINEARCH="win32"
+
+#Maven
+export M2_HOME=/opt/apache-maven/apache-maven-3.2.1
+export M2=$M2_HOME/bin
+export PATH=$PATH:$M2
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+PATH="/home/kevin/perl5/bin${PATH+:}$PATH"; export PATH;
+PERL5LIB="/home/kevin/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/kevin/perl5${PERL_LOCAL_LIB_ROOT+:}$PERL_LOCAL_LIB_ROOT"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/kevin/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/kevin/perl5"; export PERL_MM_OPT;
+
+# added by travis gem
+[ -f /home/kevin/.travis/travis.sh ] && source /home/kevin/.travis/travis.sh
+
+# Gitignore
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+#Activate virtualenv on entering directory
+check_virtualenv() {
+	if [ -e .venv ]; then
+		env=`cat .venv`
+		if [ "$env" != "${VIRTUAL_ENV##*/}" ]; then
+			echo "Found .venv in directory. Calling: workon ${env}"
+			workon $env
+		fi
+	fi
+}
+venv_cd () {
+	builtin cd "$@" && check_virtualenv
+}
+# Call check_virtualenv in case opening directly into a directory (e.g
+# # when opening a new tab in Terminal.app).
+check_virtualenv 
+
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
