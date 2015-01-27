@@ -78,10 +78,15 @@ alias tarz="tar jxf "
 alias dropbox="/home/kevin/.dropbox-dist/dropboxd"
 alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
+# Delete already merged branches
+alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xargs -n 1 git branch -d'
+
+# Go
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH/bin
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source ~/.profile
-unalias heroku
 
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -135,3 +140,4 @@ check_virtualenv
 
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
+
