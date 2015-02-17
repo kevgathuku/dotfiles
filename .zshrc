@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/kevin/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="$HOME/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -75,7 +75,7 @@ export ARCHFLAGS="-arch x86_64"
 
 alias targ="tar zxf "
 alias tarz="tar jxf "
-alias dropbox="/home/kevin/.dropbox-dist/dropboxd"
+alias dropbox="$HOME/.dropbox-dist/dropboxd"
 alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
 # Delete already merged branches
@@ -109,14 +109,14 @@ export PATH=$PATH:$M2
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-PATH="/home/kevin/perl5/bin${PATH+:}$PATH"; export PATH;
-PERL5LIB="/home/kevin/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/kevin/perl5${PERL_LOCAL_LIB_ROOT+:}$PERL_LOCAL_LIB_ROOT"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/kevin/perl5\""; export PERL_MB_OPT;
+PATH="$HOME/perl5/bin${PATH+:}$PATH"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT+:}$PERL_LOCAL_LIB_ROOT"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/kevin/perl5"; export PERL_MM_OPT;
 
 # added by travis gem
-[ -f /home/kevin/.travis/travis.sh ] && source /home/kevin/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # Gitignore
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
