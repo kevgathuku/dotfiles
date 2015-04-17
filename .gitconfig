@@ -1,0 +1,7 @@
+[user]
+    name = Kevin Ndung'u
+    email = kevgathuku@gmail.com
+[remote-hg]
+    hg-git-compat = true
+[core]
+  editor = vim
