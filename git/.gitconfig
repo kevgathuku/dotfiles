@@ -4,4 +4,7 @@
 [remote-hg]
     hg-git-compat = true
 [core]
-  editor = vim
+    editor = vim
+    excludesfile = ~/.gitignore
+[push]
+    default = simple
