@@ -7,10 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="gentoo"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -73,39 +69,45 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+alias diff="colordiff"
 alias targ="tar zxf "
 alias tarz="tar jxf "
 alias dropbox="$HOME/.dropbox-dist/dropboxd"
 alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
+alias zshconfig="vim ~/.zshrc"
+
 # Delete already merged branches
 alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xargs -n 1 git branch -d'
+
+# Alias gwch to the much shorter gwc
+alias gwc='gwch'
 
 # Go
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source ~/.profile
 
-#Virtualenvwrapper
+# Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 source /usr/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
 
-#Python Docs
+# Python Docs
 export PYTHONDOCS=/usr/share/doc/python2/html/
 
-#Wine
+# Wine
 export WINEPREFIX=.wine # any path to a writable folder on your home directory will do
 export WINEARCH="win32"
 
-#Maven
+# Maven
 export M2_HOME=/opt/apache-maven/apache-maven-3.2.1
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2
 
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
@@ -134,10 +136,8 @@ check_virtualenv() {
 venv_cd () {
 	builtin cd "$@" && check_virtualenv
 }
-# Call check_virtualenv in case opening directly into a directory (e.g
-# # when opening a new tab in Terminal.app).
+# Call check_virtualenv in case opening directly into a directory
 check_virtualenv 
 
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
-
