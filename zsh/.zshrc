@@ -70,6 +70,7 @@ export ARCHFLAGS="-arch x86_64"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 alias diff="colordiff"
+alias pipgrep="pip freeze | grep "
 alias targ="tar zxf "
 alias tarz="tar jxf "
 alias dropbox="$HOME/.dropbox-dist/dropboxd"
