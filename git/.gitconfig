@@ -19,4 +19,6 @@
 	switch = !legit switch
 	resync = !legit resync
 [rebase]
-	autosquash = true
+  autosquash = true
+[commit]
+  template = ~/.gitmessage
