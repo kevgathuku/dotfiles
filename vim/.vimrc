@@ -13,6 +13,9 @@ let g:solarized_termtrans = 1
 colorscheme solarized
 call togglebg#map("<F5>")
 
+" Remap ESC to jk
+inoremap jk <ESC>
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
