@@ -44,13 +44,25 @@ ZSH_THEME="gentoo"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python pip django sublime git-flow)
+plugins=(git python pip django sublime git-flow gitignore)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH="$HOME/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Add Custom PHP tp PATH
+export PATH="/usr/local/opt/php56/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+# Add Local node_modules path to $PATH
+export PATH="./node_modules/.bin:$PATH"
+
+# Add Cabal Packages to PATH
+export PATH="$HOME/.cabal/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -77,6 +89,10 @@ alias dropbox="$HOME/.dropbox-dist/dropboxd"
 alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
+alias zshrc="source ~/.zshrc"
+
+# mkdir and cd
+function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Delete already merged branches
 alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xargs -n 1 git branch -d'
@@ -84,33 +100,34 @@ alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xarg
 # Alias gwch to the much shorter gwc
 alias gwc='gwch'
 
+# Mkvirtualenv for Python 3
+alias mkvirtualenv3='mkvirtualenv -p $(which python3)'
+
 # Go
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
+
+# PHP Pear PATH
+export PATH=$PATH:$HOME/pear/bin
+
+# Postgres PATH
+PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
 source ~/.profile
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
-source /usr/bin/virtualenvwrapper.sh
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
 # Python Docs
 export PYTHONDOCS=/usr/share/doc/python2/html/
 
-# Wine
-export WINEPREFIX=.wine # any path to a writable folder on your home directory will do
-export WINEARCH="win32"
-
-# Maven
-export M2_HOME=/opt/apache-maven/apache-maven-3.2.1
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2
-
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=$PATH:/usr/local/var/rbenv/versions/2.2.3/bin
 
 PATH="$HOME/perl5/bin${PATH+:}$PATH"; export PATH;
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB"; export PERL5LIB;
@@ -140,5 +157,23 @@ venv_cd () {
 # Call check_virtualenv in case opening directly into a directory
 check_virtualenv 
 
-alias grep="/usr/bin/grep $GREP_OPTIONS"
+# Android
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
+# Lunchy
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
+      . $LUNCHY_DIR/lunchy-completion.zsh
+fi
+
+# Ocaml
+. /Users/kevgathuku/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export GREP_OPTIONS='--color=auto'
+alias grep="grep $GREP_OPTIONS"
+alias egrep="egrep $GREP_OPTIONS"
 unset GREP_OPTIONS
+
+
+# added by travis gem
+[ -f /Users/kevgathuku/.travis/travis.sh ] && source /Users/kevgathuku/.travis/travis.sh
