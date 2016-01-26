@@ -1,6 +1,6 @@
 [user]
     name = Kevin Ndung'u
-    email = kevgathuku@gmail.com
+    email = kevgathuku@users.noreply.github.com
 [remote-hg]
     hg-git-compat = true
 [core]
@@ -22,3 +22,9 @@
   autosquash = true
 [commit]
   template = ~/.gitmessage
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
