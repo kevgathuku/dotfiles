@@ -141,29 +141,13 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 # Gitignore
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-#Activate virtualenv on entering directory
-check_virtualenv() {
-	if [ -e .venv ]; then
-		env=`cat .venv`
-		if [ "$env" != "${VIRTUAL_ENV##*/}" ]; then
-			echo "Found .venv in directory. Calling: workon ${env}"
-			workon $env
-		fi
-	fi
-}
-venv_cd () {
-	builtin cd "$@" && check_virtualenv
-}
-# Call check_virtualenv in case opening directly into a directory
-check_virtualenv 
-
 # Android
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Lunchy
 LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
 if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
-      . $LUNCHY_DIR/lunchy-completion.zsh
+    . $LUNCHY_DIR/lunchy-completion.zsh
 fi
 
 # Ocaml
@@ -174,6 +158,11 @@ alias grep="grep $GREP_OPTIONS"
 alias egrep="egrep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
-
 # added by travis gem
 [ -f /Users/kevgathuku/.travis/travis.sh ] && source /Users/kevgathuku/.travis/travis.sh
+
+# https://github.com/nvbn/thefuck
+eval "$(thefuck --alias)"
+
+# https://github.com/kennethreitz/autoenv
+source /usr/local/opt/autoenv/activate.sh
