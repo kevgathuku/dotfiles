@@ -18,6 +18,8 @@
 	sync = !legit sync
 	switch = !legit switch
 	resync = !legit resync
+	unstage = reset HEAD --
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [rebase]
   autosquash = true
 [commit]
@@ -28,3 +30,6 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
