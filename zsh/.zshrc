@@ -151,7 +151,7 @@ if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
 fi
 
 # Ocaml
-. /Users/kevgathuku/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export GREP_OPTIONS='--color=auto'
 alias grep="grep $GREP_OPTIONS"
@@ -159,7 +159,7 @@ alias egrep="egrep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
 # added by travis gem
-[ -f /Users/kevgathuku/.travis/travis.sh ] && source /Users/kevgathuku/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # https://github.com/nvbn/thefuck
 eval "$(thefuck --alias)"
