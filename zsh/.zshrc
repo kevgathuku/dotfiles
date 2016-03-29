@@ -57,6 +57,9 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/php56/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
+# Add Mac utilities location to path
+export PATH="/usr/sbin:$PATH"
+
 # Add Local node_modules path to $PATH
 export PATH="./node_modules/.bin:$PATH"
 
