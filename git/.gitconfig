@@ -1,13 +1,14 @@
 [user]
-    name = Kevin Ndung'u
-    email = kevgathuku@users.noreply.github.com
+  name = Kevin Ndung'u
+  email = kevgathuku@users.noreply.github.com
+  useconfigonly = true
 [remote-hg]
-    hg-git-compat = true
+  hg-git-compat = true
 [core]
-    editor = vim
-    excludesfile = ~/.gitignore
+  editor = vim
+  excludesfile = ~/.gitignore
 [push]
-    default = simple
+  default = simple
 [alias]
 	branches = !legit branches
 	graft = !legit graft
