@@ -3,7 +3,12 @@
 .bundle
 .env
 db/*.sqlite3
-log/*.log
+.*\.log
+.*\.rej
+.*\.o
+.*\.elc
+.*\.pyc
+.*\.class
 rerun.txt
 tags
 !tags/
@@ -13,5 +18,8 @@ tmp/**/*
 .venv
 # Backup files
 *~
+.*\.orig
+.*\.old
+.*\.bak
 # Pycharm IDE Files
 .idea
