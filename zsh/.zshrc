@@ -113,7 +113,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/pear/bin
 
 # Postgres PATH
-PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 source ~/.profile
 
