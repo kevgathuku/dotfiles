@@ -1,6 +1,10 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+" Use relative line numbers
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 set shell=bash
 execute pathogen#infect()
 
