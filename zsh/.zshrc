@@ -92,7 +92,7 @@ alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
 alias zshrc="source ~/.zshrc"
-
+alias ns="npm start"
 # mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
