@@ -14,6 +14,12 @@ endif
 
 syntax enable
 filetype plugin indent on
+" Search related settings
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans = 1
