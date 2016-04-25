@@ -53,9 +53,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-# Add Custom PHP tp PATH
-export PATH="/usr/local/opt/php56/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+# Add Metasploit to PATH
+export PATH="$PATH:/opt/metasploit-framework/bin"
 
 # Add Mac utilities location to path
 export PATH="/usr/sbin:$PATH"
