@@ -136,6 +136,8 @@ PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT+:}$PERL_LOCAL_LIB_ROOT"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+# Configure perlbrew
+source $HOME/perl5/perlbrew/etc/bashrc
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
@@ -168,3 +170,8 @@ eval "$(thefuck --alias)"
 
 # https://github.com/kennethreitz/autoenv
 source /usr/local/opt/autoenv/activate.sh
+
+# Setup Opam
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+[ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
