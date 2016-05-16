@@ -29,6 +29,7 @@ Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
 Plugin 'fatih/vim-go'
+Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 filetype on
