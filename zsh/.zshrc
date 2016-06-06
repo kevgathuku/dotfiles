@@ -65,6 +65,9 @@ export PATH="./node_modules/.bin:$PATH"
 # Add Cabal Packages to PATH
 export PATH="$HOME/.cabal/bin:$PATH"
 
+# Add Cargo Packages to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -93,6 +96,10 @@ alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
 alias zshrc="source ~/.zshrc"
 alias ns="npm start"
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
 # mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
