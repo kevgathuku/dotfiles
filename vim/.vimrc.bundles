@@ -36,6 +36,7 @@ Plugin 'tomasr/molokai'
 Plugin 'cespare/vim-toml'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()
 filetype on
