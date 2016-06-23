@@ -37,6 +37,8 @@ Plugin 'cespare/vim-toml'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 call vundle#end()
 filetype on
