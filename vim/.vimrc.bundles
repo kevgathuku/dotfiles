@@ -32,13 +32,17 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sjl/gundo.vim'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'tomasr/molokai'
 Plugin 'cespare/vim-toml'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tpope/vim-commentary'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype on
