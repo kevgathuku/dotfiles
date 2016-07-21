@@ -46,7 +46,7 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python pip django git-flow gitignore mosh tmux)
+plugins=(git python pip django git-flow gitignore mosh tmux rails npm brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,13 +78,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
@@ -101,6 +94,7 @@ alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
 alias zshrc="source ~/.zshrc"
 alias ns="npm start"
+alias bubg='brew update && brew upgrade'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -173,6 +167,9 @@ export GREP_OPTIONS='--color=auto'
 alias grep="grep $GREP_OPTIONS"
 alias egrep="egrep $GREP_OPTIONS"
 unset GREP_OPTIONS
+
+# alias Gradle to gw  http://www.gdub.rocks/
+alias gradle=gw
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
