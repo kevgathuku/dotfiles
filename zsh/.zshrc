@@ -92,7 +92,7 @@ alias dropbox="$HOME/.dropbox-dist/dropboxd"
 alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
-alias zshrc="source ~/.zshrc"
+alias sourcerc="source ~/.zshrc"
 alias ns="npm start"
 alias bubg='brew update && brew upgrade'
 
@@ -179,6 +179,17 @@ eval "$(thefuck --alias)"
 
 # https://github.com/kennethreitz/autoenv
 source /usr/local/opt/autoenv/activate.sh
+
+# Install a python package and save it to the requirements.txt file
+pip_install_save() {
+    package_name=$1
+    requirements_file=$2
+    if [[ -z $requirements_file ]]
+    then
+        requirements_file='./requirements.txt'
+    fi
+    pip install $package_name && pip freeze | grep -i $package_name >> $requirements_file
+}
 
 # Setup Opam
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
