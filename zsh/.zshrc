@@ -129,21 +129,28 @@ export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
+
 # Python Docs
 export PYTHONDOCS=/usr/share/doc/python2/html/
+
+check_virtualenv() {
+    if [ -e .venv ]; then
+        env=`cat .venv`
+        echo "Found .venv in directory. Calling: workon ${env}"
+        workon $env
+    fi
+}
+venv_cd () {
+    builtin cd "$@" && check_virtualenv
+}
+# Call check_virtualenv in case opening directly into a directory (e.g
+# when opening a new tab in Terminal.app).
+check_virtualenv
 
 # rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$PATH:/usr/local/var/rbenv/versions/2.2.3/bin
-
-PATH="$HOME/perl5/bin${PATH+:}$PATH"; export PATH;
-PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB+:}$PERL5LIB"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT+:}$PERL_LOCAL_LIB_ROOT"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
-# Configure perlbrew
-source $HOME/perl5/perlbrew/etc/bashrc
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
