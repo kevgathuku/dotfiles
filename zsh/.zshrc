@@ -111,6 +111,9 @@ alias gwc='gwch'
 # Mkvirtualenv for Python 3
 alias mkvirtualenv3='mkvirtualenv -p $(which python3)'
 
+# Configure the Global Editor
+export EDITOR=`which vim`
+
 # Go
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
