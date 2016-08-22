@@ -201,8 +201,5 @@ pip_install_save() {
     pip install $package_name && pip freeze | grep -i $package_name >> $requirements_file
 }
 
-# Setup Opam
-. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
 [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
