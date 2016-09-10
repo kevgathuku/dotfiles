@@ -187,9 +187,6 @@ alias gradle=gw
 # https://github.com/nvbn/thefuck
 eval "$(thefuck --alias)"
 
-# https://github.com/kennethreitz/autoenv
-source /usr/local/opt/autoenv/activate.sh
-
 # Install a python package and save it to the requirements.txt file
 pip_install_save() {
     package_name=$1
