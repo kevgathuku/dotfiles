@@ -172,6 +172,7 @@ fi
 
 # Ocaml
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+eval `opam config env`
 
 export GREP_OPTIONS='--color=auto'
 alias grep="grep $GREP_OPTIONS"
