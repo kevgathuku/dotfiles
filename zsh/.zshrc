@@ -191,6 +191,9 @@ eval "$(thefuck --alias)"
 # https://github.com/kennethreitz/autoenv
 source /usr/local/opt/autoenv/activate.sh
 
+# Activate tmux theme
+tmux source-file ~/.tmuxline.conf
+
 # Install a python package and save it to the requirements.txt file
 pip_install_save() {
     package_name=$1
