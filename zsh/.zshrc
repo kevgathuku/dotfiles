@@ -51,8 +51,8 @@ plugins=(git python pip django git-flow gitignore mosh tmux rails npm brew color
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH="$HOME/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export PATH="$HOME/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Add local Python Path
@@ -118,13 +118,11 @@ export EDITOR=`which vim`
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# PHP Pear PATH
-export PATH=$PATH:$HOME/pear/bin
-
 # Postgres PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
-source ~/.profile
+# Custom npm global PATH
+export PATH=$HOME/npm-global/bin:$PATH
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -174,6 +172,9 @@ fi
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 eval `opam config env`
 
+# Haskell
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
 export GREP_OPTIONS='--color=auto'
 alias grep="grep $GREP_OPTIONS"
 alias egrep="egrep $GREP_OPTIONS"
@@ -205,3 +206,5 @@ pip_install_save() {
     pip install $package_name && pip freeze | grep -i $package_name >> $requirements_file
 }
 
+# Temporary gulp alias
+alias gin="gulp index"
