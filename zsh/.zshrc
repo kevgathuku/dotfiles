@@ -186,9 +186,6 @@ alias gradle=gw
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-# https://github.com/nvbn/thefuck
-eval "$(thefuck --alias)"
-
 # https://github.com/kennethreitz/autoenv
 source /usr/local/opt/autoenv/activate.sh
 
