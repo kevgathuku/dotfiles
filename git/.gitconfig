@@ -22,6 +22,7 @@
 	resync = !legit resync
 	unstage = reset HEAD --
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	up = pull --rebase --autostash
 [rebase]
 	autosquash = true
 [commit]
