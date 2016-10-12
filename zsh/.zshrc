@@ -51,12 +51,10 @@ plugins=(git python pip django git-flow gitignore mosh tmux rails npm brew color
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-# Add local Python Path
-export PATH="$PATH:$HOME/Library/Python/2.7/bin/"
 
 # Add Metasploit to PATH
 export PATH="$PATH:/opt/metasploit-framework/bin"
@@ -203,5 +201,3 @@ pip_install_save() {
     pip install $package_name && pip freeze | grep -i $package_name >> $requirements_file
 }
 
-# Temporary gulp alias
-alias gin="gulp index"
