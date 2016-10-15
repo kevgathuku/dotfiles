@@ -174,6 +174,12 @@ let g:gundo_preview_height = 20
 let g:gundo_preview_bottom = 1
 let g:gundo_close_on_revert = 1
 
+" Rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 " Golint
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 
