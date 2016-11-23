@@ -66,7 +66,7 @@ export PATH="/usr/sbin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
 # Add Cabal Packages to PATH
-export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
