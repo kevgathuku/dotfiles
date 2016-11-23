@@ -201,3 +201,4 @@ pip_install_save() {
     pip install $package_name && pip freeze | grep -i $package_name >> $requirements_file
 }
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
