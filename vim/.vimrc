@@ -170,6 +170,12 @@ set splitright
 " Autoformat settings
 nmap <Leader>f :Autoformat<CR>
 
+" Remap leader to Space
+let mapleader = "\<Space>"
+
+" Use leader + q for :Bdelete
+:nnoremap <Leader>q :Bdelete<CR>
+
 " Gundo config
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_preview_height = 20
