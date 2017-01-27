@@ -54,6 +54,8 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+
 " Reduce delay when leaving insert mode
 set ttimeoutlen=10
 
