@@ -205,3 +205,6 @@ pip_install_save() {
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Load additional env variables
+[[ -f ~/.zshenv ]] && source ~/.zshenv
