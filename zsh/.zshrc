@@ -208,3 +208,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Load additional env variables
 [[ -f ~/.zshenv ]] && source ~/.zshenv
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
