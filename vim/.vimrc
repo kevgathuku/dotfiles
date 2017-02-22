@@ -81,6 +81,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Remap ESC to jk
 inoremap jk <ESC>
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR>
+
 " Recommended syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
