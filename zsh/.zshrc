@@ -71,9 +71,6 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Add PHP bin to PATH 
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
