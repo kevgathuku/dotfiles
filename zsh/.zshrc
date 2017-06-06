@@ -146,11 +146,6 @@ venv_cd () {
 # when opening a new tab in Terminal.app).
 check_virtualenv
 
-# rbenv
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH=$PATH:/usr/local/var/rbenv/versions/2.2.3/bin
-
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
@@ -207,3 +202,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [[ -f ~/.zshenv ]] && source ~/.zshenv
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval $(/usr/libexec/path_helper -s)
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+
