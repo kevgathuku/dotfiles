@@ -168,6 +168,9 @@ eval `opam config env`
 # Haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
+# n
+export PATH="/usr/local/n/versions/node/6.11.0/bin:$PATH"
+
 export GREP_OPTIONS='--color=auto'
 alias grep="grep $GREP_OPTIONS"
 alias egrep="egrep $GREP_OPTIONS"
@@ -209,3 +212,11 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
 
+# Add composer to path
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc'; fi
