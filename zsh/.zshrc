@@ -62,9 +62,6 @@ export PATH="$PATH:/opt/metasploit-framework/bin"
 # Add Mac utilities location to path
 export PATH="/usr/sbin:$PATH"
 
-# Add Local node_modules path to $PATH
-export PATH="./node_modules/.bin:$PATH"
-
 # Add Cabal Packages to PATH
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
@@ -107,7 +104,7 @@ alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xarg
 alias gwc='gwch'
 
 # Mkvirtualenv for Python 3
-alias mkvirtualenv3='mkvirtualenv -p $(which python3)'
+alias mkvirtualenv3='mkvirtualenv -p python3'
 
 # Configure the Global Editor
 export EDITOR=`which vim`
@@ -213,14 +210,12 @@ if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc'; fi
 
-# added by travis gem
-[ -f /Users/kevin/.travis/travis.sh ] && source /Users/kevin/.travis/travis.sh
-
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
-
 # rbenv
 eval "$(rbenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # direnv
 eval "$(direnv hook zsh)"
