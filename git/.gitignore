@@ -26,3 +26,4 @@ tmp/**/*
 .nvmrc
 # Direnv
 .envrc
+.direnv
