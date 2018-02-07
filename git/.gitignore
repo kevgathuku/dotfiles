@@ -24,3 +24,5 @@ tmp/**/*
 # Pycharm IDE Files
 .idea
 .nvmrc
+# Direnv
+.envrc

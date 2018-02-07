@@ -182,9 +182,6 @@ alias gradle=gw
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-# https://github.com/kennethreitz/autoenv
-source /usr/local/opt/autoenv/activate.sh
-
 # Activate tmux theme
 tmux source-file ~/.tmuxline.conf
 
@@ -225,3 +222,5 @@ if [ -f '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc' ]; then source '/
 
 # rbenv
 eval "$(rbenv init -)"
+# direnv
+eval "$(direnv hook zsh)"
