@@ -2,7 +2,7 @@
 *.sw[nop]
 .bundle
 .env
-db/*.sqlite3
+*.sqlite3
 .*\.log
 .*\.rej
 .*\.o
@@ -11,6 +11,7 @@ db/*.sqlite3
 .*\.class
 rerun.txt
 tags
+.tags
 !tags/
 tmp/**/*
 !tmp/cache/.keep
@@ -27,3 +28,5 @@ tmp/**/*
 # Direnv
 .envrc
 .direnv
+# Vscode
+.vscode/
