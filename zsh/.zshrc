@@ -106,6 +106,9 @@ alias gwc='gwch'
 # Mkvirtualenv for Python 3
 alias mkvirtualenv3='mkvirtualenv -p python3'
 
+# Append pipenv run to python
+alias prp="pipenv run python"
+
 # Configure the Global Editor
 export EDITOR=`which vim`
 
@@ -124,7 +127,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Python Docs
 export PYTHONDOCS=/usr/share/doc/python2/html/
@@ -152,12 +154,6 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 # Android
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
-# Lunchy
-LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
-if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
-    . $LUNCHY_DIR/lunchy-completion.zsh
-fi
-
 # Ocaml
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 eval `opam config env`
@@ -176,9 +172,6 @@ unset GREP_OPTIONS
 # alias Gradle to gw  http://www.gdub.rocks/
 alias gradle=gw
 
-# added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-
 # Activate tmux theme
 tmux source-file ~/.tmuxline.conf
 
@@ -195,11 +188,7 @@ pip_install_save() {
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Load additional env variables
-[[ -f ~/.zshenv ]] && source ~/.zshenv
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval $(/usr/libexec/path_helper -s)
 
 # Add composer to path
 export PATH="$PATH:$HOME/.composer/vendor/bin"
@@ -213,9 +202,13 @@ if [ -f '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc' ]; then source '/
 # rbenv
 eval "$(rbenv init -)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # direnv
 eval "$(direnv hook zsh)"
+
+# pyenv
+eval "$(pyenv init -)"
+
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+
