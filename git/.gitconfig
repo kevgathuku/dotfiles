@@ -1,7 +1,8 @@
 [user]
 	name = Kevin Ndung'u
-	email = kevgathuku@users.noreply.github.com 
+	email = kevgathuku@gmail.com
   useconfigonly = true
+	signingkey = 6F939DF9A26D46D7
 [remote-hg]
   hg-git-compat = true
 [core]
@@ -43,3 +44,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[gpg]
+	program = gpg
