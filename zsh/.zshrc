@@ -128,6 +128,10 @@ export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
+enable_vw() {
+  source /usr/local/bin/virtualenvwrapper.sh
+}
+
 # Python Docs
 export PYTHONDOCS=/usr/share/doc/python2/html/
 
