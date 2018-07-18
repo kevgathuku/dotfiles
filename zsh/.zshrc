@@ -88,7 +88,6 @@ alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
 alias sourcerc="source ~/.zshrc"
-alias ns="npm start"
 alias bubg='brew update && brew upgrade'
 
 # Pretty print the path
@@ -125,7 +124,7 @@ export PATH=$HOME/npm-global/bin:$PATH
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
 enable_vw() {
@@ -173,9 +172,6 @@ alias grep="grep $GREP_OPTIONS"
 alias egrep="egrep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
-# alias Gradle to gw  http://www.gdub.rocks/
-alias gradle=gw
-
 # Activate tmux theme
 tmux source-file ~/.tmuxline.conf
 
@@ -217,8 +213,5 @@ eval "$(pyenv init -)"
 
 export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 
-[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
-
 # GPG signing commits
 export GPG_TTY=$(tty)
-
