@@ -46,22 +46,10 @@ set background=dark
 colorscheme solarized
 set termguicolors
 
-" vim airline integration
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 0
-
 set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 
 " Reduce delay when leaving insert mode
 set ttimeoutlen=10
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
 
 " Vim markdown
 let g:vim_markdown_folding_disabled = 1
@@ -82,17 +70,6 @@ inoremap jk <ESC>
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>
-
-" Recommended syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
 
 augroup vimrcEx
   autocmd!
