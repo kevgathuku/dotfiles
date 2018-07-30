@@ -44,6 +44,7 @@ set smartcase
 syntax enable
 set background=dark
 colorscheme solarized
+set termguicolors
 
 " vim airline integration
 let g:airline_powerline_fonts = 1
