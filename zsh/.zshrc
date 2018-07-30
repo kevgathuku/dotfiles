@@ -56,12 +56,6 @@ export PATH="$HOME/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-# Add Metasploit to PATH
-export PATH="$PATH:/opt/metasploit-framework/bin"
-
-# Add Mac utilities location to path
-export PATH="/usr/sbin:$PATH"
-
 # Add Cabal Packages to PATH
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
@@ -153,13 +147,6 @@ check_virtualenv
 
 # Gitignore
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
-# Android
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-# Ocaml
-. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-eval `opam config env`
 
 # Haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
