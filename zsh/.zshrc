@@ -152,7 +152,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # n
-export PATH="/usr/local/n/versions/node/6.11.0/bin:$PATH"
+export N_PREFIX=$HOME
 
 export GREP_OPTIONS='--color=auto'
 alias grep="grep $GREP_OPTIONS"
