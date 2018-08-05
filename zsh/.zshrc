@@ -77,7 +77,6 @@ alias diff="colordiff"
 alias pipgrep="pip freeze | grep "
 alias targ="tar zxf "
 alias tarz="tar jxf "
-alias dropbox="$HOME/.dropbox-dist/dropboxd"
 alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
@@ -120,13 +119,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=`which python3`
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-
-enable_vw() {
-  source /usr/local/bin/virtualenvwrapper.sh
-}
-
-# Python Docs
-export PYTHONDOCS=/usr/share/doc/python2/html/
 
 check_virtualenv() {
     if [ -e .venv ]; then
@@ -186,9 +178,6 @@ export PATH="$(brew --prefix php@7.1)/bin:$PATH"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/completion.zsh.inc'; fi
-
 # rbenv
 eval "$(rbenv init -)"
 
@@ -202,3 +191,6 @@ export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 
 # GPG signing commits
 export GPG_TTY=$(tty)
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
