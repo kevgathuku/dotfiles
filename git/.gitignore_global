@@ -28,5 +28,4 @@ tmp/**/*
 # Direnv
 .envrc
 .direnv
-# Vscode
-.vscode/
+
