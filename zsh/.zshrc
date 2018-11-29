@@ -46,7 +46,7 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git textmate ruby lighthouse)
-plugins=(git python pip django git-flow gitignore mosh tmux npm colored-man-pages zsh-syntax-highlighting bundler)
+plugins=(git brew python pip django git-flow gitignore mosh tmux npm colored-man-pages zsh-syntax-highlighting bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -194,3 +194,4 @@ export GPG_TTY=$(tty)
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+export PATH="/usr/local/opt/node@10/bin:$PATH"
