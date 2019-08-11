@@ -62,6 +62,9 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Add Python 3 bin directory to path
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -82,6 +85,8 @@ alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
 alias sourcerc="source ~/.zshrc"
 alias bubg='brew update && brew upgrade'
+alias pip='pip3'
+alias gcsmg='gcmsg'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -119,20 +124,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=`which python3`
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-
-check_virtualenv() {
-    if [ -e .venv ]; then
-        env=`cat .venv`
-        echo "Found .venv in directory. Calling: workon ${env}"
-        workon $env
-    fi
-}
-venv_cd () {
-    builtin cd "$@" && check_virtualenv
-}
-# Call check_virtualenv in case opening directly into a directory (e.g
-# when opening a new tab in Terminal.app).
-check_virtualenv
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
@@ -201,4 +192,7 @@ export PATH="/usr/local/opt/node@10/bin:$PATH"
 
 # Make the `python` command refer to Python 3
 alias python='python3'
+
+# Let pipenv create a virtualenv inside the project’s directory
+export PIPENV_VENV_IN_PROJECT=1
 
