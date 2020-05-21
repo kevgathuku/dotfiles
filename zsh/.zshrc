@@ -206,3 +206,5 @@ eval $(opam env)
 # asdf
 . $(brew --prefix asdf)/asdf.sh
 
+export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
