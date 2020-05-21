@@ -196,3 +196,9 @@ alias python='python3'
 # Let pipenv create a virtualenv inside the project’s directory
 export PIPENV_VENV_IN_PROJECT=1
 
+eval "$(starship init zsh)"
+
+source /Users/kevin/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+# Opam
+eval $(opam env) 
