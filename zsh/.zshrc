@@ -179,8 +179,6 @@ eval "$(direnv hook zsh)"
 # pyenv
 eval "$(pyenv init -)"
 
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
-
 # GPG signing commits
 export GPG_TTY=$(tty)
 
