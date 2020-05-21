@@ -163,8 +163,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Add composer to path
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-# Add php to path
-export PATH="$(brew --prefix php@7.1)/bin:$PATH"
+# Use PHP 7.3 as the default
+export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc'; fi
@@ -206,5 +207,3 @@ eval $(opam env)
 # asdf
 . $(brew --prefix asdf)/asdf.sh
 
-export PATH="/usr/local/opt/php@7.3/bin:$PATH"
-export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
