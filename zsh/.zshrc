@@ -202,3 +202,7 @@ source /Users/kevin/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 # Opam
 eval $(opam env) 
+
+# asdf
+. $(brew --prefix asdf)/asdf.sh
+
