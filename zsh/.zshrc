@@ -186,8 +186,8 @@ export GPG_TTY=$(tty)
 HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 
-# Use Node.js v10 as the default
-export PATH="/usr/local/opt/node@10/bin:$PATH"
+# Use Node.js v12 as the default
+export PATH="/usr/local/opt/node@12/bin:$PATH"
 
 # Make the `python` command refer to Python 3
 alias python='python3'
