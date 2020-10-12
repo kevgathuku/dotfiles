@@ -46,9 +46,55 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git textmate ruby lighthouse)
-plugins=(git brew python pip django git-flow gitignore mosh tmux npm colored-man-pages zsh-syntax-highlighting bundler)
+plugins=(git brew python pip django git-flow gitignore mosh tmux npm colored-man-pages bundler zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+platform='unknown'
+unamestr=`uname`
+
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='macos'
+fi
+
+if [[ $platform == 'linux' ]]; then
+	# Configuration for linux
+	# TODO
+elif [[ $platform == 'macos' ]]; then
+	# Configuration for MAC OS
+
+	# Haskell
+	export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+	# Add Cabal Packages to PATH
+	export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+	# Postgres PATH
+	export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+	# heroku autocomplete setup
+	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+	#  https://github.com/Canop/broot
+	source /Users/kevin/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+	# asdf
+	. $(brew --prefix asdf)/asdf.sh
+
+	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
+
+	# Use Node.js v12 as the default
+	export PATH="/usr/local/opt/node@12/bin:$PATH"
+
+	# Use PHP 7.3 as the default
+	export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+	export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+fi
+
+# Add Cargo Packages to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # User configuration
 export PATH="/usr/local/sbin:$PATH"
@@ -56,14 +102,6 @@ export PATH="$HOME/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-# Add Cabal Packages to PATH
-export PATH="$HOME/Library/Haskell/bin:$PATH"
-
-# Add Cargo Packages to PATH
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Add Python 3 bin directory to path
-export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -72,9 +110,6 @@ export LANG=en_US.UTF-8
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 alias diff="colordiff"
 alias pipgrep="pip freeze | grep "
@@ -111,9 +146,6 @@ export EDITOR=`which vim`
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# Postgres PATH
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-
 # Custom npm global PATH
 export PATH=$HOME/npm-global/bin:$PATH
 
@@ -122,9 +154,6 @@ export PATH=$HOME/npm-global/bin:$PATH
 
 # Gitignore
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
-# Haskell
-export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # n
 export N_PREFIX=$HOME
@@ -135,7 +164,7 @@ alias egrep="egrep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
 # Activate tmux theme
-tmux source-file ~/.tmuxline.conf
+[ -f $HOME/.tmuxline.conf ] && tmux source-file ~/.tmuxline.conf
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -143,10 +172,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Add composer to path
 export PATH="$PATH:$HOME/.composer/vendor/bin"
-
-# Use PHP 7.3 as the default
-export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc'; fi
@@ -160,26 +185,14 @@ eval "$(pyenv init -)"
 # GPG signing commits
 export GPG_TTY=$(tty)
 
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-export LDFLAGS="-L/usr/local/opt/icu4c/lib"
-
-# Use Node.js v12 as the default
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-
 # Let pipenv create a virtualenv inside the project’s directory
 export PIPENV_VENV_IN_PROJECT=1
 
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
 
-source /Users/kevin/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
 # Opam
 eval $(opam env) 
-
-# asdf
-. $(brew --prefix asdf)/asdf.sh
 
 
 ###-tns-completion-start-###
