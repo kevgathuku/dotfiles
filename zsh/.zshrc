@@ -87,6 +87,7 @@ alias sourcerc="source ~/.zshrc"
 alias bubg='brew update && brew upgrade'
 alias pip='pip3'
 alias gcsmg='gcmsg'
+alias python='python3'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -99,9 +100,6 @@ alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xarg
 
 # Alias gwch to the much shorter gwc
 alias gwc='gwch'
-
-# Mkvirtualenv for Python 3
-alias mkvirtualenv3='mkvirtualenv -p python3'
 
 # Append pipenv run to python
 alias prp="pipenv run python"
@@ -118,12 +116,6 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # Custom npm global PATH
 export PATH=$HOME/npm-global/bin:$PATH
-
-# Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/code
-export VIRTUALENVWRAPPER_PYTHON=`which python3`
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
@@ -144,17 +136,6 @@ unset GREP_OPTIONS
 
 # Activate tmux theme
 tmux source-file ~/.tmuxline.conf
-
-# Install a python package and save it to the requirements.txt file
-pip_install_save() {
-    package_name=$1
-    requirements_file=$2
-    if [[ -z $requirements_file ]]
-    then
-        requirements_file='./requirements.txt'
-    fi
-    pip install $package_name && pip freeze | grep -i $package_name >> $requirements_file
-}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -186,12 +167,10 @@ export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 # Use Node.js v12 as the default
 export PATH="/usr/local/opt/node@12/bin:$PATH"
 
-# Make the `python` command refer to Python 3
-alias python='python3'
-
 # Let pipenv create a virtualenv inside the project’s directory
 export PIPENV_VENV_IN_PROJECT=1
 
+# https://github.com/starship/starship
 eval "$(starship init zsh)"
 
 source /Users/kevin/Library/Preferences/org.dystroy.broot/launcher/bash/br
