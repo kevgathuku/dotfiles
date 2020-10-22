@@ -99,7 +99,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # User configuration
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 
