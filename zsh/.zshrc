@@ -234,7 +234,5 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-export PATH="/usr/local/opt/terraform@0.13/bin:$PATH"
-export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
 
