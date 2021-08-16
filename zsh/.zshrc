@@ -81,10 +81,6 @@ elif [[ $platform == 'macos' ]]; then
 	. $(brew --prefix asdf)/asdf.sh
 
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
-
-	# Use PHP 7.3 as the default
-	export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-	export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 fi
 
 # Add Cargo Packages to PATH
