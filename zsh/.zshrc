@@ -77,16 +77,10 @@ elif [[ $platform == 'macos' ]]; then
 	# heroku autocomplete setup
 	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-	#  https://github.com/Canop/broot
-	source /Users/kevin/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
 	# asdf
 	. $(brew --prefix asdf)/asdf.sh
 
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
-
-	# Use Node.js v12 as the default
-	export PATH="/usr/local/opt/node@12/bin:$PATH"
 
 	# Use PHP 7.3 as the default
 	export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
@@ -193,46 +187,11 @@ eval "$(starship init zsh)"
 # Opam
 eval $(opam env) 
 
-
 ###-tns-completion-start-###
 if [ -f /Users/kevin/.tnsrc ]; then 
     source /Users/kevin/.tnsrc 
 fi
 ###-tns-completion-end-###
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# RVM
-[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path"  ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A"  ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version"  ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)"  ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
 
