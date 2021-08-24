@@ -68,11 +68,8 @@ elif [[ $platform == 'macos' ]]; then
 	# Haskell
 	export PATH="$HOME/Library/Haskell/bin:$PATH"
 
-	# Add Cabal Packages to PATH
-	export PATH="$HOME/Library/Haskell/bin:$PATH"
-
-	# Postgres PATH
-	export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+	# Set Postgres 10 as the default -> M1 only
+  export PATH="/opt/homebrew/opt/postgresql@10/bin:$PATH"
 
 	# heroku autocomplete setup
 	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
@@ -201,9 +198,6 @@ export GPG_TTY=$(tty)
 # Let pipenv create a virtualenv inside the project’s directory
 export PIPENV_VENV_IN_PROJECT=1
 
-# https://github.com/starship/starship
-eval "$(starship init zsh)"
-
 # Opam
 eval $(opam env) 
 
@@ -217,4 +211,7 @@ export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
 
 # rbenv
 eval "$(rbenv init -)"
+
+# https://github.com/starship/starship
+eval "$(starship init zsh)"
 
