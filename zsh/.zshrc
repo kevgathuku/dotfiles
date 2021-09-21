@@ -198,9 +198,6 @@ export GPG_TTY=$(tty)
 # Let pipenv create a virtualenv inside the project’s directory
 export PIPENV_VENV_IN_PROJECT=1
 
-# Opam
-eval $(opam env) 
-
 ###-tns-completion-start-###
 if [ -f /Users/kevin/.tnsrc ]; then 
     source /Users/kevin/.tnsrc 
@@ -214,4 +211,7 @@ eval "$(rbenv init -)"
 
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
+
+# opam configuration
+[[ ! -r /Users/kevin/.opam/opam-init/init.zsh ]] || source /Users/kevin/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
