@@ -9,6 +9,7 @@
   editor = vim
 	excludesfile = /Users/kevin/.gitignore_global
 	autocrlf = input
+  ignorecase = false
 [push]
   default = simple
 [alias]
