@@ -28,4 +28,6 @@ tmp/**/*
 # Direnv
 .envrc
 .direnv
+start-app-kevin
+.vscode/
 
