@@ -186,9 +186,6 @@ fi
 
 export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
 
-# rbenv
-eval "$(rbenv init -)"
-
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
 
