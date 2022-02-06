@@ -96,6 +96,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -116,7 +119,6 @@ alias sourcerc="source ~/.zshrc"
 alias bubg='brew update && brew upgrade'
 alias pip='pip3'
 alias gcsmg='gcmsg'
-alias python='python3'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
