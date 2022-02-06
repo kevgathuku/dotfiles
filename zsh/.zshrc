@@ -46,7 +46,7 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git textmate ruby lighthouse)
-plugins=(git brew sublime zoxide python pip gitignore mosh tmux npm colored-man-pages bundler zsh-syntax-highlighting)
+plugins=(git brew sublime zoxide python pip gitignore mosh tmux rbenv npm colored-man-pages bundler zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -189,6 +189,4 @@ eval "$(starship init zsh)"
 
 # opam configuration
 [[ ! -r /Users/kevin/.opam/opam-init/init.zsh ]] || source /Users/kevin/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
-eval "$(rbenv init - zsh)"
 
