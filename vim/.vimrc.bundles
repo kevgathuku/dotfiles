@@ -34,6 +34,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'moll/vim-bbye'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype on
