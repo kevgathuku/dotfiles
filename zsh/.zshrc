@@ -46,7 +46,7 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git textmate ruby lighthouse)
-plugins=(git direnv brew sublime zoxide python gitignore mosh tmux rbenv pyenv npm colored-man-pages bundler zsh-syntax-highlighting)
+plugins=(git direnv brew sublime zoxide python gitignore mosh nvm tmux rbenv pyenv npm colored-man-pages bundler zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,10 +83,6 @@ elif [[ $platform == 'macos' ]]; then
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 fi
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
