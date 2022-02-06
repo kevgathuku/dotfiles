@@ -46,7 +46,7 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git textmate ruby lighthouse)
-plugins=(git brew sublime zoxide python gitignore mosh tmux rbenv pyenv npm colored-man-pages bundler zsh-syntax-highlighting)
+plugins=(git direnv brew sublime zoxide python gitignore mosh tmux rbenv pyenv npm colored-man-pages bundler zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -163,9 +163,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc'; fi
-
-# direnv
-eval "$(direnv hook zsh)"
 
 # GPG signing commits
 export GPG_TTY=$(tty)
