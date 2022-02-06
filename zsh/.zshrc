@@ -68,12 +68,6 @@ elif [[ $platform == 'macos' ]]; then
 	# Haskell
 	export PATH="$HOME/Library/Haskell/bin:$PATH"
 
-	# Set Postgres 11 as the default -> M1 only
-  export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
-
-   export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
-   export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
-
 	# heroku autocomplete setup
 	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
@@ -83,6 +77,11 @@ elif [[ $platform == 'macos' ]]; then
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 fi
 
+# Set Postgres 11 as the default
+export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
 
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
