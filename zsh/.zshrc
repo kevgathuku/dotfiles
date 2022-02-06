@@ -146,9 +146,6 @@ export PATH=$HOME/npm-global/bin:$PATH
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-# Gitignore
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
 export GREP_OPTIONS='--color=auto'
 alias grep="grep $GREP_OPTIONS"
 alias egrep="egrep $GREP_OPTIONS"
