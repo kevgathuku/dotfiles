@@ -151,8 +151,6 @@ brew "planck"
 brew "poppler"
 brew "postgresql@11", restart_service: true
 brew "pre-commit"
-brew "pyenv"
-brew "pyenv-virtualenvwrapper"
 brew "pygobject3"
 brew "pyqt"
 brew "rabbitmq"

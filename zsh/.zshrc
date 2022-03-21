@@ -51,7 +51,7 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git textmate ruby lighthouse)
-plugins=(git direnv brew sublime zoxide python gitignore mosh nvm tmux rbenv pyenv npm colored-man-pages bundler zsh-syntax-highlighting)
+plugins=(git direnv brew sublime zoxide python gitignore mosh nvm tmux rbenv npm colored-man-pages bundler zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,10 +95,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
