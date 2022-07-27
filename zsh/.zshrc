@@ -179,5 +179,9 @@ eval "$(starship init zsh)"
 # opam configuration
 [[ ! -r /Users/kevin/.opam/opam-init/init.zsh ]] || source /Users/kevin/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Fig post block. Keep at the bottom of this file.
 . "$HOME/.fig/shell/zshrc.post.zsh"
