@@ -110,7 +110,6 @@ alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
 alias sourcerc="source ~/.zshrc"
 alias bubg='brew update && brew upgrade'
-alias pip='pip3'
 alias gcsmg='gcmsg'
 
 # Pretty print the path
@@ -184,4 +183,8 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
