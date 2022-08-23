@@ -13,15 +13,6 @@
 [push]
   default = simple
 [alias]
-	branches = !legit branches
-	graft = !legit graft
-	harvest = !legit harvest
-	publish = !legit publish
-	unpublish = !legit unpublish
-	sprout = !legit sprout
-	sync = !legit sync
-	switch = !legit switch
-	resync = !legit resync
 	unstage = reset HEAD --
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 	up = pull --rebase --autostash
