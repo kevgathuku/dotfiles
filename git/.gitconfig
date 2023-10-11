@@ -1,6 +1,6 @@
 [user]
 	name = Kevin Gathuku
-	email = kevgathuku@gmail.com
+	email = kevgathuku@users.noreply.github.com
   useconfigonly = true
 	signingkey = 6F939DF9A26D46D7
 [remote-hg]
