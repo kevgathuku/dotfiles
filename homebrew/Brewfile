@@ -165,7 +165,6 @@ brew "planck"
 brew "postgresql@11", restart_service: true
 brew "virtualenv"
 brew "pre-commit"
-brew "pyenv"
 brew "pygobject3"
 brew "qt"
 brew "pyqt"
