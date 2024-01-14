@@ -35,6 +35,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'moll/vim-bbye'
 Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-rails'
+Plugin 'garbas/vim-snipmate'
 
 call vundle#end()
 filetype on
