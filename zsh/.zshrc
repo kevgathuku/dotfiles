@@ -175,10 +175,6 @@ eval "$(starship init zsh)"
 # opam configuration
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh"  > /dev/null 2> /dev/null
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # kantox
 alias ecs_cli="$HOME/code/kantox/infrastructure-ecs/cli/bin/dcli"
 
@@ -201,15 +197,15 @@ alias update='sudo pacman -Syyu && flatpak update'
 alias clrcache='sudo pacman -Scc'
 alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
 
-#Recent Installed Packages
+# Recent Installed Packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
-#Package Info
+# Package Info
 alias info='sudo pacman -Si '
 alias infox='sudo pacman -Sii '
 
-##Refresh Keys
+# Refresh Keys
 alias rkeys='sudo pacman-key --refresh-keys'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
