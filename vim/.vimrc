@@ -66,6 +66,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 
+" show hidden files
+let NERDTreeShowHidden=1
+
 " Remap ESC to jk
 inoremap jk <ESC>
 
@@ -169,4 +172,4 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " ctags
-set tags=./tags
+set tags=tags;/
