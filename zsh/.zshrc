@@ -184,9 +184,6 @@ alias ecs_cli="$HOME/code/kantox/infrastructure-ecs/cli/bin/dcli"
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-# asdf
-. /opt/asdf-vm/asdf.sh
-
 # Pacman for software managment
 alias upall='topgrade'
 alias search='pamac search '
