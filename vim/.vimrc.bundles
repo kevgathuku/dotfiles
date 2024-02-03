@@ -38,6 +38,7 @@ Plugin 'moll/vim-bbye'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-rails'
 Plugin 'garbas/vim-snipmate'
+Bundle 'edkolev/tmuxline.vim'
 
 call vundle#end()
 filetype on
