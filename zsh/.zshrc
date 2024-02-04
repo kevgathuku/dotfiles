@@ -148,6 +148,7 @@ unset GREP_OPTIONS
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --no-ignore --hidden -l ""'
 
 # Add composer to path
 export PATH="$PATH:$HOME/.composer/vendor/bin"
