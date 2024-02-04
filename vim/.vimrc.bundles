@@ -39,6 +39,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-rails'
 Plugin 'garbas/vim-snipmate'
 Bundle 'edkolev/tmuxline.vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call vundle#end()
 filetype on
