@@ -178,3 +178,10 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " ctags
 set tags=tags;/
+
+" show trailing whitespace
+set listchars=trail:-
+
+" remove trailing whitespace from Ruby files
+autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
+
