@@ -42,6 +42,7 @@ Plugin 'garbas/vim-snipmate'
 Bundle 'edkolev/tmuxline.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'elixir-editors/vim-elixir'
 
 call vundle#end()
 filetype on
