@@ -7,7 +7,7 @@
   hg-git-compat = true
 [core]
   editor = vim
-	excludesfile = /Users/kevin/.gitignore_global
+	excludesfile = /home/kevin/.gitignore_global
 	autocrlf = input
   ignorecase = false
 [push]
