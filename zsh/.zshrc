@@ -148,10 +148,16 @@ unset GREP_OPTIONS
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# zsh
-eval "$(fzf --zsh)"
+# Add Go Lang to PATH 
+export PATH=$PATH:/usr/local/go/bin
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 export FZF_DEFAULT_COMMAND='rg --no-ignore --hidden -l ""'
+
+# Enable syntax highlighting in vim-ubuntu
+export TERM=xterm
 
 # Add composer to path
 export PATH="$PATH:$HOME/.composer/vendor/bin"
