@@ -38,8 +38,6 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
-filetype plugin indent on
-
 " Search related settings
 set hlsearch
 set incsearch
