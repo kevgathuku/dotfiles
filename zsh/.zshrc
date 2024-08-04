@@ -63,7 +63,25 @@ fi
 
 if [[ $platform == 'linux' ]]; then
 	# Configuration for linux
-	# TODO
+
+	# pyenv
+	export PYENV_ROOT="$HOME/.pyenv"
+	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+
+	export VOLTA_HOME="$HOME/.volta"
+	export PATH="$VOLTA_HOME/bin:$PATH"
+
+	# deno
+	export DENO_INSTALL="/home/kevin/.deno"
+	export PATH="$DENO_INSTALL/bin:$PATH"
+
+	# kantox
+	alias ecs_cli="$HOME/workspace/infrastructure-ecs/cli/bin/dcli"
+
+	# Others
+	export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
+
 elif [[ $platform == 'macos' ]]; then
 	# Configuration for MAC OS
 
@@ -77,9 +95,11 @@ elif [[ $platform == 'macos' ]]; then
 
 	# Set Postgres 11 as the default
 	export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
-
 	export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
 	export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
+
+	# kantox
+	alias ecs_cli="$HOME/code/kantox/infrastructure-ecs/cli/bin/dcli"
 fi
 
 # Add Cargo Packages to PATH
@@ -132,6 +152,9 @@ export EDITOR=`which vim`
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
+# Add Go Lang to PATH 
+export PATH=$PATH:/usr/local/go/bin
+
 # Custom npm global PATH
 export PATH=$HOME/npm-global/bin:$PATH
 
@@ -147,9 +170,6 @@ unset GREP_OPTIONS
 [ -f $HOME/.tmuxline.conf ] && tmux source-file ~/.tmuxline.conf
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Add Go Lang to PATH 
-export PATH=$PATH:/usr/local/go/bin
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -177,48 +197,13 @@ if [ -f /Users/kevin/.tnsrc ]; then
 fi
 ###-tns-completion-end-###
 
-export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
-
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
 
 # opam configuration
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh"  > /dev/null 2> /dev/null
 
-# kantox
-alias ecs_cli="$HOME/workspace/infrastructure-ecs/cli/bin/dcli"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
-
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-
-# Pacman for software managment
-alias upall='topgrade'
-alias search='pamac search '
-alias remove='sudo pacman -R '
-alias install='sudo pacman -S '
-alias linstall='sudo pacman -U *.pkg.tar.zst'
-alias update='sudo pacman -Syyu && flatpak update'
-alias clrcache='sudo pacman -Scc'
-alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
-
-# Recent Installed Packages
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
-
-# Package Info
-alias info='sudo pacman -Si '
-alias infox='sudo pacman -Sii '
-
-# Refresh Keys
-alias rkeys='sudo pacman-key --refresh-keys'
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
