@@ -1,5 +1,6 @@
-# Q pre block. Keep at the top of this file.
+# Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+# Q pre block. Keep at the top of this file.
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -120,7 +121,6 @@ export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
 
 alias diff="colordiff"
-alias pipgrep="pip freeze | grep "
 alias targ="tar zxf "
 alias tarz="tar jxf "
 alias gdh="git diff HEAD"
@@ -144,6 +144,7 @@ alias gwc='gwch'
 
 # Append pipenv run to python
 alias prp="pipenv run python"
+alias pipgrep="pip freeze | grep "
 
 # Configure the Global Editor
 export EDITOR=`which vim`
@@ -185,6 +186,9 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc'; fi
 
+# Ensure coreutils e.g. date are first in the PATH
+export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+
 # GPG signing commits
 export GPG_TTY=$(tty)
 
@@ -210,3 +214,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
