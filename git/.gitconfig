@@ -16,20 +16,29 @@
 	unstage = reset HEAD --
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 	up = pull --rebase --autostash
+  dft = difftool
 [rebase]
 	autosquash = true
 [commit]
 	template = ~/.gitmessage
 [credential]
 	helper = osxkeychain
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff]
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 [pager]
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 	show = diff-so-fancy | less --tabs=1,5 -RFX
+  difftool = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
