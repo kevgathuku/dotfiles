@@ -126,7 +126,6 @@ alias tarz="tar jxf "
 alias gdh="git diff HEAD"
 alias gds="git diff --staged -M"
 alias zshconfig="vim ~/.zshrc"
-alias sourcerc="source ~/.zshrc"
 alias bubg='brew update && brew upgrade'
 alias gcsmg='gcmsg'
 
