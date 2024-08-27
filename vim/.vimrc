@@ -183,6 +183,10 @@ let g:ale_fixers = {
 \   'rust': ['rustfmt'],
 \}
 let g:ale_linters = {'rust': ['analyzer']}
+
+" abbreviations
+iabbr clg console.log("Value: ", value);
+
 " remove trailing whitespace from Ruby files
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 
