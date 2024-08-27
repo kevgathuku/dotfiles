@@ -177,6 +177,12 @@ set tags=tags;/
 " show trailing whitespace
 set listchars=trail:-
 
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'rust': ['rustfmt'],
+\}
+let g:ale_linters = {'rust': ['analyzer']}
 " remove trailing whitespace from Ruby files
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 

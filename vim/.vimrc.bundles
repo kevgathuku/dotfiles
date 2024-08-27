@@ -44,6 +44,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'csexton/trailertrash.vim'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 filetype on
