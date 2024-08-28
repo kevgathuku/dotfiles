@@ -42,32 +42,13 @@ set ignorecase
 set smartcase
 
 syntax enable
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
 set termguicolors
-
-set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 
 " Reduce delay when leaving insert mode
 set ttimeoutlen=10
 
 " Vim markdown
 let g:vim_markdown_folding_disabled = 1
-
-" Nerdtree
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" open NERDTree with Ctrl+n
-map <C-n> :NERDTreeToggle<CR>
-
-" show hidden files
-let NERDTreeShowHidden=1
 
 " Remap ESC to jk
 inoremap jk <ESC>
@@ -115,18 +96,6 @@ set expandtab
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
@@ -166,10 +135,10 @@ let g:gundo_preview_bottom = 1
 let g:gundo_close_on_revert = 1
 
 " Rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " ctags
 set tags=tags;/
@@ -189,4 +158,10 @@ iabbr clg console.log("Value: ", value);
 
 " remove trailing whitespace from Ruby files
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
+if has('nvim')
+    " Neovim specific commands
+    lua require('config.start')
+else
+    " Standard vim specific commands
+endif
 
