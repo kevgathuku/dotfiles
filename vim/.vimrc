@@ -15,12 +15,6 @@ set backspace=2           " make backspace work like most other apps
 set shell=zsh
 let mapleader = "\<Space>"
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
 " Use relative line numbers
 set rnu
 autocmd InsertEnter * :set number
@@ -30,6 +24,9 @@ autocmd InsertLeave * :set relativenumber
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>"
+
+" Fzf
+nnoremap <C-p> :Files<CR>
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
