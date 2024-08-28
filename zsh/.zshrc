@@ -53,6 +53,9 @@ plugins=(git direnv brew sublime python gitignore mosh nvm tmux rbenv npm colore
 
 source $ZSH/oh-my-zsh.sh
 
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 platform='unknown'
 unamestr=`uname`
 
@@ -70,8 +73,6 @@ if [[ $platform == 'linux' ]]; then
 	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 	eval "$(pyenv init -)"
 
-	export VOLTA_HOME="$HOME/.volta"
-	export PATH="$VOLTA_HOME/bin:$PATH"
 
 	# deno
 	export DENO_INSTALL="/home/kevin/.deno"
