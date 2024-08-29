@@ -101,7 +101,7 @@ elif [[ $platform == 'macos' ]]; then
 	export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
 
 	# kantox
-	alias ecs_cli="$HOME/code/kantox/infrastructure-ecs/cli/bin/dcli"
+	alias ecs_cli="$HOME/code/ruby/kantox/infrastructure-ecs/cli/bin/dcli"
 fi
 
 # Add Cargo Packages to PATH
