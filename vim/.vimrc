@@ -101,10 +101,6 @@ set colorcolumn=+1
 set number
 set numberwidth=5
 
-" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
