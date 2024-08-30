@@ -7,7 +7,6 @@ syntax on             " Enable syntax highlighting
 set showcmd               " display incomplete commands
 set ruler                 " show the cursor position all the time
 set laststatus=2          " Always display the status line
-set cursorline            " Highlight the line the cursor is on
 set autoread              " Read changes immediately if file changed outside vim
 set clipboard=unnamed    " Use system clipboard
 set mouse=a               " Enable mouse in all modes
@@ -97,6 +96,7 @@ set nojoinspaces
 " Make it obvious where 80 characters is
 set textwidth=100
 set colorcolumn=+1
+highlight ColorColumn ctermbg=235 guibg=#262626
 
 " Numbers
 set number
