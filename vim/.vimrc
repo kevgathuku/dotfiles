@@ -3,6 +3,10 @@ set encoding=utf-8
 set t_Co=256
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 
 set showcmd               " display incomplete commands
 set ruler                 " show the cursor position all the time
