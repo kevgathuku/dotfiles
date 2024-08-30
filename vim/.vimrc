@@ -22,6 +22,9 @@ autocmd InsertLeave * :set relativenumber
 set splitbelow
 set splitright
 
+" replace add mark key
+nnoremap gm m
+
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
