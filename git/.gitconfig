@@ -7,7 +7,7 @@
   hg-git-compat = true
 [core]
   editor = vim
-	excludesfile = /home/kevingathuku/.gitignore_global
+  # Global excludes file now in default location $HOME/.config/git/ignore
 	autocrlf = input
   ignorecase = false
 [push]
