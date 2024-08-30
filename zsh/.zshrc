@@ -178,7 +178,7 @@ source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND='rg --no-ignore --hidden -l ""'
 
 # Enable syntax highlighting in vim-ubuntu
-export TERM=xterm
+export TERM=xterm-256color
 
 # Add composer to path
 export PATH="$PATH:$HOME/.composer/vendor/bin"

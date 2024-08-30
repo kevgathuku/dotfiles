@@ -1,6 +1,5 @@
 scriptencoding utf-8
 set encoding=utf-8
-set t_Co=256
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
 set expandtab
@@ -38,10 +37,6 @@ nnoremap <silent> <S-t> :tabnew<CR>"
 " Fzf
 nnoremap <C-p> :Files<CR>
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
 " Search related settings
 set hlsearch
 set incsearch
@@ -50,6 +45,22 @@ set smartcase
 
 syntax enable
 set termguicolors
+
+if !has('gui_running')
+  set t_Co=256
+endif
+set noshowmode
+
+if !has('nvim')
+  " running in vim
+  colorscheme pablo
+  if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
+  endif
+endif
+
+" replace add mark key
+nnoremap gm m
 
 " Reduce delay when leaving insert mode
 set ttimeoutlen=10
@@ -103,7 +114,16 @@ set nojoinspaces
 " Make it obvious where 80 characters is
 set textwidth=100
 set colorcolumn=+1
+
+" less annoying highlight column color
 highlight ColorColumn ctermbg=235 guibg=#262626
+
+if !has('gui_running') && &term =~ '\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+set termguicolors
+
 
 " Numbers
 set number
