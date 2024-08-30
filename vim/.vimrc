@@ -47,9 +47,6 @@ set ttimeoutlen=10
 " Vim markdown
 let g:vim_markdown_folding_disabled = 1
 
-" Remap ESC to jk
-inoremap jk <ESC>
-
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>
 
@@ -151,10 +148,4 @@ iabbr clg console.log("Value: ", value);
 
 " remove trailing whitespace from Ruby files
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
-if has('nvim')
-    " Neovim specific commands
-    lua require('config.start')
-else
-    " Standard vim specific commands
-endif
 
