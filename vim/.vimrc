@@ -94,7 +94,7 @@ set expandtab
 set nojoinspaces
 
 " Make it obvious where 80 characters is
-set textwidth=80
+set textwidth=100
 set colorcolumn=+1
 
 " Numbers
