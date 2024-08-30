@@ -25,9 +25,6 @@ autocmd InsertLeave * :set relativenumber
 set splitbelow
 set splitright
 
-" replace add mark key
-nnoremap gm m
-
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -78,9 +75,9 @@ augroup vimrcEx
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
@@ -168,10 +165,10 @@ set tags=tags;/
 set listchars=trail:-
 
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'rust': ['rustfmt'],
-\}
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint'],
+      \   'rust': ['rustfmt'],
+      \}
 let g:ale_linters = {'rust': ['analyzer']}
 
 " abbreviations
