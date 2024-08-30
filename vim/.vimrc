@@ -50,7 +50,7 @@ set noshowmode
 
 if !has('nvim')
   " running in vim
-  colorscheme pablo
+  colorscheme sorbet
   if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
   endif
