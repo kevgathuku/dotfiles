@@ -26,9 +26,13 @@ set rnu
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
+set splitbelow
+set splitright
+
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
+" shift-t to create a new empty tab
 nnoremap <silent> <S-t> :tabnew<CR>"
 
 if filereadable(expand("~/.vimrc.bundles"))
