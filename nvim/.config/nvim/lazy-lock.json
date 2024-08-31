@@ -1,5 +1,4 @@
 {
-  "catppuccin": { "branch": "main", "commit": "4fd72a9ab64b393c2c22b168508fd244877fec96" },
   "cutlass.nvim": { "branch": "main", "commit": "1ac7e4b53d79410be52a9e464d44c60556282b3e" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
   "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
@@ -14,5 +13,6 @@
   "plenary.nvim": { "branch": "master", "commit": "ec289423a1693aeae6cd0d503bac2856af74edaa" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
+  "vim-commentary": { "branch": "master", "commit": "c4b8f52cbb7142ec239494e5a2c4a512f92c4d07" },
   "vim-yoink": { "branch": "master", "commit": "89ed6934679fdbc3c20f552b50b1f869f624cd22" }
 }
