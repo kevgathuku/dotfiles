@@ -45,7 +45,7 @@ set smartcase
 set foldmethod=indent   
 set foldnestmax=10
 set nofoldenable
-set foldlevel=2
+set foldlevel=4
 
 syntax enable
 set termguicolors
