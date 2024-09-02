@@ -40,6 +40,13 @@ set incsearch
 set ignorecase
 set smartcase
 
+" folding
+" set foldmethod=syntax
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 syntax enable
 set termguicolors
 
