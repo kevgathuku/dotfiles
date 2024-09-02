@@ -6,7 +6,7 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-
+filetype plugin indent on
 set showcmd               " display incomplete commands
 set ruler                 " show the cursor position all the time
 set laststatus=2          " Always display the status line
