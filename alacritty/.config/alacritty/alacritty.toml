@@ -1,4 +1,4 @@
 [env]
 term = "xterm-256color"
 [font]
-size = 14.0
+size = 12.0
