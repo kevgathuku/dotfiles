@@ -11,7 +11,7 @@ set showcmd               " display incomplete commands
 set ruler                 " show the cursor position all the time
 set laststatus=2          " Always display the status line
 set autoread              " Read changes immediately if file changed outside vim
-set clipboard=unnamed    " Use system clipboard
+" set clipboard=unnamed    " Use system clipboard
 set mouse=a               " Enable mouse in all modes
 set backspace=2           " make backspace work like most other apps
 set shell=zsh
@@ -63,7 +63,6 @@ set noshowmode
 
 if !has('nvim')
   " running in vim
-  colorscheme sorbet
   if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
   endif
