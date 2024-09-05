@@ -63,7 +63,7 @@ set noshowmode
 
 " running in vim
 if !has('nvim')
-  colorscheme torte
+  colorscheme darkblue
   if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
   endif
