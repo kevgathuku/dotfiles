@@ -48,7 +48,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " folding
 " set foldmethod=syntax
-set foldmethod=indent   
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=4
@@ -61,8 +61,9 @@ if !has('gui_running')
 endif
 set noshowmode
 
+" running in vim
 if !has('nvim')
-  " running in vim
+  colorscheme torte
   if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
   endif

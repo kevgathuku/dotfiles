@@ -3,5 +3,7 @@ return {
   { "tpope/vim-fugitive" },
   { "tpope/vim-rails" },
   { "tpope/vim-rhubarb" },
-  { "tpope/vim-surround" }
+  { "tpope/vim-surround" },
+  { "vim-ruby/vim-ruby" },
+  { "yegappan/mru" }
 }
