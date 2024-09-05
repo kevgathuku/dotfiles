@@ -5,5 +5,8 @@ return {
   { "tpope/vim-rhubarb" },
   { "tpope/vim-surround" },
   { "vim-ruby/vim-ruby" },
-  { "yegappan/mru" }
+  { "yegappan/mru" },
+  { "tek/vim-textobj-ruby",
+    dependencies = { "kana/vim-textobj-user" }
+  }
 }
