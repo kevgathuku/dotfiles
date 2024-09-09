@@ -75,11 +75,14 @@ if [[ $platform == 'linux' ]]; then
 
 
 	# deno
-	export DENO_INSTALL="/home/kevin/.deno"
+	export DENO_INSTALL="$HOME/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
 
 	# kantox
 	alias ecs_cli="$HOME/workspace/infrastructure-ecs/cli/bin/dcli"
+
+  # dotnet tools
+  export PATH="$PATH:$HOME/.dotnet/tools"
 
 	# Others
 	export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
@@ -188,6 +191,9 @@ if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/
 
 # Ensure coreutils e.g. date are first in the PATH
 export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+
+# dotnet tools
+export PATH="$PATH:/home/kevingathuku/.dotnet/tools"
 
 # GPG signing commits
 export GPG_TTY=$(tty)

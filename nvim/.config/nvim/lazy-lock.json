@@ -1,4 +1,5 @@
 {
+  "Ionide-vim": { "branch": "master", "commit": "268955cc106f8328a232b160a7360cf331c0a323" },
   "cutlass.nvim": { "branch": "main", "commit": "1ac7e4b53d79410be52a9e464d44c60556282b3e" },
   "formatter.nvim": { "branch": "master", "commit": "ad246d34ce7a32f752071ed81b09b94e6b127fad" },
   "lazy.nvim": { "branch": "main", "commit": "48b52b5cfcf8f88ed0aff8fde573a5cc20b1306d" },
