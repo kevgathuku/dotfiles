@@ -193,7 +193,7 @@ if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/
 export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 
 # dotnet tools
-export PATH="$PATH:/home/kevingathuku/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 # GPG signing commits
 export GPG_TTY=$(tty)
