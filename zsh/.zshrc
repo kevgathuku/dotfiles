@@ -96,6 +96,9 @@ elif [[ $platform == 'macos' ]]; then
 	# heroku autocomplete setup
 	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
+  # dotnet root
+  export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 
 	# Set Postgres 11 as the default
