@@ -2,6 +2,7 @@ return {
   { "tpope/vim-commentary" },
   { "tpope/vim-unimpaired" },
   { "tpope/vim-fugitive" },
+  { "junegunn/gv.vim" },
   { "tpope/vim-rails" },
   { "tpope/vim-rhubarb" },
   { "tpope/vim-surround" },
