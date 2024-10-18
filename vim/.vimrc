@@ -72,6 +72,10 @@ endif
 " replace add mark key
 nnoremap gm m
 
+" copy to system clipboard
+xnoremap <leader>y "+y
+nnoremap <leader>y "+y
+
 " Reduce delay when leaving insert mode
 set ttimeoutlen=10
 
@@ -189,4 +193,3 @@ iabbr clg console.log("Value: ", value);
 
 " remove trailing whitespace from Ruby files
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
-
