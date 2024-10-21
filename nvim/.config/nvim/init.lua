@@ -4,6 +4,3 @@ vim.o.packpath = vim.o.runtimepath
 vim.cmd('source ~/.vimrc')
 
 require("config.lazy")
--- set clipboard=unnamed,unnamedplus
--- vim.api.nvim_set_option("clipboard", "unnamed")
-

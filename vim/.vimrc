@@ -76,6 +76,17 @@ nnoremap gm m
 xnoremap <leader>y "+y
 nnoremap <leader>y "+y
 
+" Paste from system clipboard in normal and visual mode with leader + v
+nnoremap <leader>v "+p
+vnoremap <leader>v "+p
+
+" replacement keybindings for cut
+nnoremap m d
+xnoremap m d
+
+nnoremap mm dd
+nnoremap M D
+
 " Reduce delay when leaving insert mode
 set ttimeoutlen=10
 

@@ -33,6 +33,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'csexton/trailertrash.vim'
 Plug 'dense-analysis/ale'
+Plug 'svermeulen/vim-cutlass'
 
 call plug#end()
 
