@@ -10,8 +10,8 @@ return {
       command = "FormatWrite",
     })
 
-    vim.api.nvim_set_keymap('n', '<leader>f', ':Format<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<leader>F', ':FormatWrite<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>f", ":Format<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>F", ":FormatWrite<CR>", { noremap = true, silent = true })
 
     -- Provides the following commands:
     -- Format, FormatWrite, FormatLock, FormatWriteLock
@@ -21,14 +21,20 @@ return {
       filetype = {
         ruby = {
           function()
+            local rubocop_path
+            if vim.fn.has("macunix") == 1 then
+              rubocop_path = "/Users/kevin/code/ruby/kantox/kantox-flow/exe/rubocop"
+            elseif vim.fn.has("unix") == 1 then
+              rubocop_path = "/home/kevingathuku/workspace/kantox-flow/exe/rubocop"
+            end
             return {
-              exe = "/home/kevingathuku/workspace/kantox-flow/exe/rubocop",
+              exe = rubocop_path,
               args = {
                 "--fix-layout",
                 "--stdin",
                 util.escape_path(util.get_current_buffer_file_name()),
                 "-o",
-                "/tmp/rubocop.log"
+                "/tmp/rubocop.log",
               },
               stdin = true,
               transform = function(text)
