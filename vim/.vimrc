@@ -165,9 +165,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 set splitbelow
 set splitright
 
-" Autoformat settings
-nmap <Leader>f :Autoformat<CR>
-
 " Remap leader to Space
 let mapleader = "\<Space>"
 
