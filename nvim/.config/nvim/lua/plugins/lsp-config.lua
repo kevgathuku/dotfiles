@@ -23,6 +23,7 @@ return {
 
       lspconfig.eslint.setup({})
       lspconfig.fsautocomplete.setup({})
+      lspconfig.coffeesense.setup({})
       -- rubocop lsp requires version 1.53. Currently on 0.93.1
       -- lspconfig.rubocop.setup({})
 
