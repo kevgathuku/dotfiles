@@ -19,10 +19,12 @@ return {
     lazy = false,
     config = function()
       local lspconfig = require("lspconfig")
-              lspconfig.lua_ls.setup({})
+      lspconfig.lua_ls.setup({})
 
       lspconfig.eslint.setup({})
       lspconfig.fsautocomplete.setup({})
+      -- rubocop lsp requires version 1.53. Currently on 0.93.1
+      -- lspconfig.rubocop.setup({})
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
