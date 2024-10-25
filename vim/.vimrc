@@ -32,7 +32,15 @@ nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>"
 
 " Fzf
+command! -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --hidden --glob "!.git/*" --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+      \   1,
+      \   fzf#vim#with_preview(),
+      \   <bang>0)
+
 nnoremap <C-p> :Files<CR>
+nnoremap <leader>fg :Rg<CR>
 
 " Search related settings
 set hlsearch
