@@ -93,6 +93,9 @@ elif [[ $platform == 'macos' ]]; then
 	# Haskell
 	export PATH="$HOME/Library/Haskell/bin:$PATH"
 
+  # dune
+  export PATH="/Users/kevin/.dune/bin:$PATH"
+
 	# heroku autocomplete setup
 	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
@@ -237,9 +240,7 @@ export NVM_DIR="$HOME/.nvm"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
