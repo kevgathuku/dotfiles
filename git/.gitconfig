@@ -53,3 +53,5 @@
 	postBuffer = 157286400
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[safe]
+	bareRepository = explicit
