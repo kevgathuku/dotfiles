@@ -42,6 +42,9 @@ command! -nargs=* Rg
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>fg :Rg<CR>
 
+" mac settings
+set rtp+=/opt/homebrew/opt/fzf
+
 " Search related settings
 set hlsearch
 set incsearch
