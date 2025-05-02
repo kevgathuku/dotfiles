@@ -41,6 +41,7 @@ command! -nargs=* Rg
 
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>fg :Rg<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
 
 " mac settings
 set rtp+=/opt/homebrew/opt/fzf
