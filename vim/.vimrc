@@ -36,7 +36,7 @@ command! -nargs=* Rg
       \ call fzf#vim#grep(
       \   'rg --hidden --glob "!.git/*" --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
       \   1,
-      \   fzf#vim#with_preview(),
+      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
       \   <bang>0)
 
 nnoremap <C-p> :Files<CR>
