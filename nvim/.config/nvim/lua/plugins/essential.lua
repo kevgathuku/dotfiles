@@ -8,6 +8,7 @@ return {
   { "tpope/vim-surround" },
   { "vim-ruby/vim-ruby" },
   { "yegappan/mru" },
+  { "mtth/scratch.vim" },
   { "tek/vim-textobj-ruby",
     dependencies = { "kana/vim-textobj-user" }
   }
