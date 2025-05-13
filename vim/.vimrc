@@ -213,3 +213,15 @@ iabbr clg console.log("Value: ", value);
 
 " remove trailing whitespace from Ruby files
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
+
+
+" vim-test ruby mappings
+let test#ruby#rspec#executable = 'docker exec -it kantox-flow-app-1 bundle exec rspec'
+let test#ruby#rspec#options = {
+  \'file': '--format documentation',
+\}
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>

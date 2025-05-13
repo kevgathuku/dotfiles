@@ -36,6 +36,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'csexton/trailertrash.vim'
 Plug 'dense-analysis/ale'
 Plug 'svermeulen/vim-cutlass'
+Plug 'vim-test/vim-test'
 
 call plug#end()
 
