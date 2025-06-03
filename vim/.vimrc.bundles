@@ -2,6 +2,7 @@ set nocompatible  "Allow Vim-only settings even if they break vi keybindings.
 filetype off
 call plug#begin()
 
+" https://github.com/junegunn/vim-plug
 " Define bundles via Github repos
 Plug 'vim-ruby/vim-ruby'
 Plug 'christoomey/vim-run-interactive'

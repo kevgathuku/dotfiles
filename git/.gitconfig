@@ -22,8 +22,8 @@
 [commit]
 	template = ~/.gitmessage
 [credential]
-	helper = osxkeychain
 	helper = /usr/local/share/gcm-core/git-credential-manager
+	credentialStore = cache
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

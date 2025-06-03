@@ -68,12 +68,8 @@ fi
 if [[ $platform == 'linux' ]]; then
 	# Configuration for linux
 
-	# pyenv
-	export PYENV_ROOT="$HOME/.pyenv"
-	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-	eval "$(pyenv init -)"
-
-
+  # neovim
+  export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 	# deno
 	export DENO_INSTALL="$HOME/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
