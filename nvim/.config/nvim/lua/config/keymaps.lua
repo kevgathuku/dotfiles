@@ -15,3 +15,9 @@ vim.api.nvim_create_user_command("Colors", function()
     layout_strategy = "vertical", -- optional: vertical layout
   })
 end, { desc = "Pick Colorscheme with Telescope" })
+
+-- Create :Yanks command to open yank history
+vim.api.nvim_create_user_command("Yanks", function()
+  -- Call yanky.nvim's telescope picker
+  require("telescope").extensions.yank_history.yank_history()
+end, { desc = "Show Yank History via Telescope" })
