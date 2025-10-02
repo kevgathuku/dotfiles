@@ -100,10 +100,10 @@ elif [[ $platform == 'macos' ]]; then
 
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 
-	# Set Postgres 11 as the default
-	export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
-	export LDFLAGS="-L/opt/homebrew/opt/postgresql@11/lib"
-	export CPPFLAGS="-I/opt/homebrew/opt/postgresql@11/include"
+	# Set Postgres 17 as the default
+	export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+	export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
+	export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
 
 	# kantox
 	alias ecs_cli="$HOME/code/ruby/kantox/infrastructure-ecs/cli/bin/dcli"
