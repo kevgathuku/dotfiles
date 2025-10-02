@@ -1,0 +1,15 @@
+return {
+  { "tpope/vim-commentary" },
+  { "tpope/vim-unimpaired" },
+  { "tpope/vim-fugitive" },
+  { "junegunn/gv.vim" },
+  { "tpope/vim-rails" },
+  { "tpope/vim-rhubarb" },
+  { "tpope/vim-surround" },
+  { "vim-ruby/vim-ruby" },
+  { "yegappan/mru" },
+  { "mtth/scratch.vim" },
+  { "tek/vim-textobj-ruby",
+    dependencies = { "kana/vim-textobj-user" }
+  }
+}
