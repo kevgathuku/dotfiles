@@ -68,8 +68,6 @@ fi
 if [[ $platform == 'linux' ]]; then
 	# Configuration for linux
 
-  # neovim
-  export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 	# deno
 	export DENO_INSTALL="$HOME/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
@@ -104,9 +102,6 @@ elif [[ $platform == 'macos' ]]; then
 	export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 	export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
 	export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
-
-	# kantox
-	alias ecs_cli="$HOME/code/ruby/kantox/infrastructure-ecs/cli/bin/dcli"
 fi
 
 # Add Cargo Packages to PATH
