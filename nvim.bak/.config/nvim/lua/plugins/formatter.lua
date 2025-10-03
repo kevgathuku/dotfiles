@@ -22,14 +22,8 @@ return {
 				filetype = {
 					ruby = {
 						function()
-							local rubocop_path
-							if vim.fn.has("macunix") == 1 then
-								rubocop_path = "/Users/kevin/code/ruby/kantox/kantox-flow/exe/rubocop"
-							elseif vim.fn.has("unix") == 1 then
-								rubocop_path = "/home/kevingathuku/workspace/kantox-flow/exe/rubocop"
-							end
 							return {
-								exe = rubocop_path,
+								exe = "/home/kevingathuku/workspace/kantox-flow/exe/rubocop",
 								args = {
 									"--fix-layout",
 									"--stdin",
