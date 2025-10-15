@@ -153,7 +153,7 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xargs -n 1 git branch -d'
 
 # Alias gwch to the much shorter gwc
-alias gwc='gwch'
+alias gwc='gwch --i-still-use-this'
 
 # Append pipenv run to python
 alias prp="pipenv run python"
@@ -233,3 +233,12 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+. "$HOME/.local/bin/env"
+
+# pnpm
+export PNPM_HOME="/home/kevin/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
