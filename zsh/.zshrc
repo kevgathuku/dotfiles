@@ -49,7 +49,7 @@ export DEFAULT_USER=`whoami`
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git textmate ruby lighthouse)
-plugins=(git direnv brew python gitignore mosh nvm tmux rbenv npm colored-man-pages bundler zsh-autopair)
+plugins=(git direnv brew python gitignore mosh zsh-nvm tmux rbenv npm colored-man-pages bundler zsh-autopair)
 
 source $ZSH/oh-my-zsh.sh
 
