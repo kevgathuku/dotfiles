@@ -243,7 +243,8 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# linuxbrew
+if [ -f '/home/linuxbrew/.linuxbrew/bin/brew shellenv' ]; then eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"; fi
 
 . "$HOME/.local/bin/env"
 
