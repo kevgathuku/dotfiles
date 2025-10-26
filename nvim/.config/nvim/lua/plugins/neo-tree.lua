@@ -8,15 +8,14 @@ return {
   },
   config = function()
     require("neo-tree").setup({
-      filesystem = 
-        {
-          filtered_items = {
-            hide_dotfiles = false,
-          },
-          follow_current_file = {
-            enabled = true
-          }
-        }
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+        },
+        follow_current_file = {
+          enabled = true,
+        },
+      },
     })
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle right<CR>", {})
     vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
