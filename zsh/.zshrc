@@ -81,6 +81,8 @@ if [[ $platform == 'linux' ]]; then
 	# Others
 	export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
 
+  # pnpm
+  export PNPM_HOME="/home/kevin/.local/share/pnpm"
 elif [[ $platform == 'macos' ]]; then
 	# Configuration for MAC OS
 
@@ -102,7 +104,16 @@ elif [[ $platform == 'macos' ]]; then
 	export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 	export LDFLAGS="-L/opt/homebrew/opt/postgresql@17/lib"
 	export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
+
+  # pnpm
+  export PNPM_HOME="/Users/kevin/Library/pnpm"
 fi
+
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -233,12 +244,6 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 . "$HOME/.local/bin/env"
 
-# pnpm
-export PNPM_HOME="/home/kevin/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
