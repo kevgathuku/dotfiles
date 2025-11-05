@@ -161,7 +161,8 @@ alias path='echo $PATH | tr -s ":" "\n"'
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Delete already merged branches
-alias gdm='git branch --merged | grep -v "\*" | egrep -v "master|develop" | xargs -n 1 git branch -d'
+alias gdp="git fetch --prune && echo 'Branches with deleted remotes:' && git branch -vv | grep ': gone]'"
+alias gdm="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D && git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -r git branch -d"
 
 # Alias gwch to the much shorter gwc
 alias gwc='gwch --i-still-use-this'
