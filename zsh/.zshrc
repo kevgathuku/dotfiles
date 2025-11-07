@@ -165,7 +165,7 @@ alias gdp="git fetch --prune && echo 'Branches with deleted remotes:' && git bra
 alias gdm="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D && git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -r git branch -d"
 
 # Alias gwch to the much shorter gwc
-alias gwc='gwch --i-still-use-this'
+alias gwc='gwch'
 
 # Append pipenv run to python
 alias prp="pipenv run python"
