@@ -162,7 +162,7 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Delete already merged branches
 alias gdp="git fetch --prune && echo 'Branches with deleted remotes:' && git branch -vv | grep ': gone]'"
-alias gdm="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D && git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -r git branch -d"
+alias gdm="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
 
 # Alias gwch to the much shorter gwc
 alias gwc='gwch'
@@ -249,3 +249,5 @@ if [ -f '/home/linuxbrew/.linuxbrew/bin/brew shellenv' ]; then eval "$(/home/lin
 
 . "$HOME/.local/bin/env"
 
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
