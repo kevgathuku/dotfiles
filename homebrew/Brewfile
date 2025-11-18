@@ -1,15 +1,19 @@
 tap "adoptopenjdk/openjdk"
 tap "auth0/auth0-cli"
 tap "azure/functions"
+tap "buo/cask-upgrade"
 tap "candid82/brew"
 tap "clojure/tools"
 tap "codeclimate/formulae"
 tap "coursier/formulas"
+tap "dunglas/frankenphp"
 tap "eosio/eosio"
 tap "ethereum/ethereum"
 tap "github/gh"
+tap "hashicorp/tap"
 tap "heroku/brew"
 tap "homebrew-community/alpha"
+tap "ligolang/ligo", "https://gitlab.com/ligolang/ligo.git"
 tap "luckyframework/lucky"
 tap "microsoft/git"
 tap "minacle/chntpw"
@@ -18,6 +22,10 @@ tap "neovim/neovim"
 tap "nutcracker/tap"
 tap "rbenv/tap"
 tap "samritchie/forge"
+tap "serokell/tezos-packaging-stable", "https://github.com/serokell/tezos-packaging-stable.git"
+tap "shivammathur/php"
+tap "symfony-cli/tap"
+tap "tezostaqueria/taqueria", "https://github.com/TezosTaqueria/taqueria"
 tap "vitorgalvao/tiny-scripts"
 # Library for manipulating PNG images
 brew "libpng"
@@ -105,14 +113,30 @@ brew "clojure"
 brew "cmake"
 # Color-highlighted diff(1) output
 brew "colordiff"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Generic library support script
+brew "libtool"
+# ODBC 3 connectivity for UNIX
+brew "unixodbc"
+# Libraries to talk to Microsoft SQL Server and Sybase databases
+brew "freetds"
+# Graphics library to dynamically manipulate images
+brew "gd"
+# Network authentication protocol
+brew "krb5"
+# Postgres C API library
+brew "libpq"
+# General-purpose scripting language
+brew "php", restart_service: :changed
+# Dependency Manager for PHP
+brew "composer"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Apjanke's fork of the classic cowsay project
 brew "cowsay"
 # Reimplementation of ctags(1)
 brew "ctags"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
 # Good-lookin' diffs with diff-highlight and more
@@ -122,7 +146,7 @@ brew "direnv"
 # Lightweight DNS forwarder and DHCP server
 brew "dnsmasq", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
-brew "docker"
+brew "docker", link: false
 # Text processing system for reStructuredText
 brew "docutils"
 # Convert text between DOS, UNIX, and Mac formats
@@ -145,10 +169,6 @@ brew "fbthrift"
 brew "fb303"
 # Shared library for Watchman and Eden projects
 brew "edencommon"
-# Generic library support script
-brew "libtool"
-# ODBC 3 connectivity for UNIX
-brew "unixodbc"
 # Programming language for highly scalable real-time systems
 brew "erlang"
 # Functional metaprogramming aware language built on Erlang VM
@@ -185,22 +205,14 @@ brew "findutils"
 brew "fop"
 # Open-source alternative to the OpenGL Utility Toolkit (GLUT) library
 brew "freeglut"
-# Libraries to talk to Microsoft SQL Server and Sybase databases
-brew "freetds"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Graphics library to dynamically manipulate images
-brew "gd"
 # X.509 and CMS library
 brew "libksba"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Network authentication protocol
-brew "krb5"
 # Database of common MIME types
 brew "shared-mime-info"
-# Postgres C API library
-brew "libpq"
 # Adds spatial SQL capabilities to SQLite
 brew "libspatialite"
 # PDF rendering library (based on the xpdf-3.0 code base)
@@ -251,6 +263,8 @@ brew "guile"
 brew "haskell-stack"
 # Multi-platform programming language
 brew "haxe"
+# Library for communicating with USB and Bluetooth HID devices
+brew "hidapi"
 # <hr />, for your terminal window
 brew "hr"
 # Improved top (interactive process viewer)
@@ -259,6 +273,8 @@ brew "htop"
 brew "httpie"
 # Website copier/offline browser
 brew "httrack"
+# Configurable static site generator
+brew "hugo"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # String tool
@@ -285,6 +301,8 @@ brew "libcroco"
 brew "libdap"
 # ELF object file access library
 brew "libelf"
+# Asynchronous event library
+brew "libev"
 # Portable Foreign Function Interface library
 brew "libffi"
 # Implementation of the file(1) command
@@ -307,7 +325,7 @@ brew "memcached", restart_service: :changed
 brew "mhash"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
-# Platform built on V8 to build network applications
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
@@ -316,7 +334,7 @@ brew "mosh"
 # General-purpose lossless data-compression library
 brew "zlib"
 # Open source relational database management system
-brew "mysql"
+brew "mysql", restart_service: :changed
 # NCurses Disk Usage
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -324,7 +342,7 @@ brew "neovim"
 # Utility for managing network connections
 brew "netcat"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx"
+brew "nginx", restart_service: :changed
 # Small build system for use with gyp or CMake
 brew "ninja"
 # General purpose programming language in the ML family
@@ -339,8 +357,8 @@ brew "openssh"
 brew "peco"
 # Highly capable, feature-rich programming language
 brew "perl"
-# General-purpose scripting language
-brew "php", restart_service: :changed
+# PHP internationalization extension
+brew "php-intl"
 # Python dependency management tool
 brew "pipenv"
 # Stand-alone ClojureScript REPL
@@ -353,12 +371,12 @@ brew "postgresql@17", restart_service: :changed
 brew "pre-commit"
 # GNOME Python bindings (based on GObject Introspection)
 brew "pygobject3"
-# Cross-platform application and UI framework
-brew "qt"
 # Python bindings for v6 of Qt
 brew "pyqt"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Cross-platform application and UI framework
+brew "qt"
 # Messaging and streaming broker
 brew "rabbitmq"
 # State machine compiler
@@ -443,6 +461,8 @@ brew "wimlib"
 brew "yarn"
 # Modular BSD reimplementation of NASM
 brew "yasm"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
@@ -457,10 +477,16 @@ brew "zsh-syntax-highlighting"
 brew "auth0/auth0-cli/auth0"
 # Launcher for Coursier
 brew "coursier/formulas/coursier"
+# Terraform
+brew "hashicorp/tap/terraform"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community"
+# Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure
+brew "symfony-cli/tap/symfony-cli"
+# Extensible, open-source plugin-based framework and task runner for Tezos development with a CLI and a library of plugins.
+brew "tezostaqueria/taqueria/taqueria"
 # Quickly repair outdated/broken Casks from homebrew-cask
 brew "vitorgalvao/tiny-scripts/cask-repair"
 # Collaborative design tool with support for Sketch files
@@ -485,6 +511,10 @@ cask "cloudflare-warp"
 cask "dash"
 # Browser for SQLite databases
 cask "db-browser-for-sqlite"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
 # Reimagine your terminal
 cask "fig"
 cask "font-fira-code"
@@ -509,6 +539,8 @@ cask "insomnia"
 cask "iterm2"
 # Open-source screen recorder built with web technology
 cask "kap"
+# Agent-centric IDE with spec-driven development
+cask "kiro"
 # Noise cancelling application
 cask "krisp"
 # IDE
@@ -577,16 +609,24 @@ cask "whatsapp"
 cask "wormhole"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+# Multiplayer code editor
+cask "zed"
+# Video communication and virtual meeting platform
+cask "zoom"
 mas "Bear", id: 1091189122
 mas "Evernote", id: 406056744
 mas "Kindle", id: 302584613
 mas "Microsoft To Do", id: 1274495053
+mas "PDFOptim", id: 621276561
 mas "Speedtest", id: 1153157709
 mas "UpNote", id: 1398373917
+mas "Xcode", id: 497799835
 vscode "aaron-bond.better-comments"
 vscode "alexandernanberg.horizon-theme-vscode"
 vscode "alpha4.jsonl"
+vscode "anthropic.claude-code"
 vscode "batisteo.vscode-django"
+vscode "bbenoist.nix"
 vscode "castwide.solargraph"
 vscode "chenglou92.rescript-vscode"
 vscode "chiragpat.vscode-glimmer"
@@ -600,6 +640,7 @@ vscode "donjayamanne.githistory"
 vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
 vscode "elmtooling.elm-ls-vscode"
+vscode "embertooling.vscode-ember"
 vscode "esbenp.prettier-vscode"
 vscode "github.codespaces"
 vscode "github.copilot"
@@ -610,8 +651,8 @@ vscode "hbenl.vscode-test-explorer"
 vscode "jakebecker.elixir-ls"
 vscode "jimmydc.js--snippet-good"
 vscode "karunamurti.haml"
-vscode "lifeart.vscode-ember-unstable"
 vscode "lifeart.vscode-glimmer-syntax"
+vscode "ligolang-publish.ligo-vscode"
 vscode "mbessey.vscode-rufo"
 vscode "mechatroner.rainbow-csv"
 vscode "misogi.ruby-rubocop"
@@ -633,6 +674,10 @@ vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode-remote.remote-wsl"
 vscode "ms-vscode-remote.vscode-remote-extensionpack"
 vscode "ms-vscode.atom-keybindings"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
 vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.powershell"
 vscode "ms-vscode.remote-explorer"
@@ -655,12 +700,14 @@ vscode "syler.vscode-haml-formatter"
 vscode "sysoev.language-stylus"
 vscode "taber.do-end-match"
 vscode "tamasfe.even-better-toml"
+vscode "tezostaqueria.taqueria-official"
 vscode "th7org.eco"
+vscode "thenouillet.symfony-vscode"
 vscode "vincentfiestada.cold-horizon-vscode"
 vscode "vortizhe.simple-ruby-erb"
 vscode "vscode-icons-team.vscode-icons"
 vscode "vue.volar"
 vscode "waderyan.gitblame"
+vscode "whatwedo.twig"
 vscode "william-voyek.vscode-nginx"
-vscode "wingrunr21.vscode-ruby"
 vscode "zhuangtongfa.material-theme"
