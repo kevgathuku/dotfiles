@@ -34,3 +34,5 @@ start-app-kevin
 dragonfly
 # solargraph rails
 config/definitions.rb
+
+**/.claude/settings.local.json
