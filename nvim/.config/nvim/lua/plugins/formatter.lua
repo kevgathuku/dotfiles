@@ -6,6 +6,7 @@ return {
         ruby = { "rubocop" },
         eruby = { "rubocop" }, -- for *.erb templates
         rake = { "rubocop" }, -- some setups detect rake files separately
+        rust = { "rustfmt", lsp_format = "fallback" },
       },
       formatters = {
         rubocop = {
