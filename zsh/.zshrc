@@ -36,7 +36,7 @@ export DEFAULT_USER=`whoami`
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -51,7 +51,13 @@ export DEFAULT_USER=`whoami`
 # Example format: plugins=(git textmate ruby lighthouse)
 plugins=(git direnv brew python gitignore mosh tmux rbenv npm colored-man-pages bundler zsh-autopair)
 
+# Skip verification of insecure directories (speeds up startup)
+ZSH_DISABLE_COMPFIX=true
+
 source $ZSH/oh-my-zsh.sh
+
+# Reduce oh-my-zsh update frequency
+zstyle ':omz:update' frequency 30
 
 platform='unknown'
 unamestr=`uname`
@@ -199,8 +205,16 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules,vendor}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 
-export FZF_DEFAULT_COMMAND='rg --no-ignore --hidden -l ""'
+# FZF color scheme
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info \
+  --color=fg:#d0d0d0,bg:#121212,hl:#5f87af \
+  --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff \
+  --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff \
+  --color=marker:#87ff00,spinner:#af5fff,header:#87afaf"
 
 # Enable syntax highlighting in vim-ubuntu
 export TERM=xterm-256color
