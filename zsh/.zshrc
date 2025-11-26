@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME=""
 
 export DEFAULT_USER=`whoami`
 
@@ -94,9 +94,6 @@ elif [[ $platform == 'macos' ]]; then
 
   # dune
   export PATH="$HOME/.dune/bin:$PATH"
-
-	# heroku autocomplete setup
-	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
   # dotnet root
   export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
@@ -266,7 +263,7 @@ for cmd in node npm npx corepack yarn pnpm; do
   eval "${cmd}(){ __nvm_lazy_load; ${cmd} \"\$@\" }"
 done
 
-autoload -U +X bashcompinit && bashcompinit
+
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
