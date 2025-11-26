@@ -21,3 +21,15 @@ vim.api.nvim_create_user_command("Yanks", function()
   -- Call yanky.nvim's telescope picker
   require("telescope").extensions.yank_history.yank_history()
 end, { desc = "Show Yank History via Telescope" })
+
+-- Exchange line up (like unimpaired [e)
+vim.keymap.set("n", "[e", function()
+  local count = vim.v.count1
+  vim.cmd("move -" .. (count + 1))
+end, { desc = "Exchange line up (unimpaired)" })
+
+-- Exchange line down (like unimpaired)
+vim.keymap.set("n", "]e", function()
+  local count = vim.v.count1
+  vim.cmd("move +" .. count)
+end, { desc = "Exchange line down (unimpaired)" })
