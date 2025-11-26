@@ -38,6 +38,7 @@ Plug 'csexton/trailertrash.vim'
 Plug 'dense-analysis/ale'
 Plug 'svermeulen/vim-cutlass'
 Plug 'vim-test/vim-test'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
