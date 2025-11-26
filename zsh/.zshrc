@@ -79,10 +79,10 @@ if [[ $platform == 'linux' ]]; then
   export PATH="$PATH:$HOME/.dotnet/tools"
 
 	# Others
-	export PATH="/Users/kevin/.local/share/solana/install/active_release/bin:$PATH"
+  export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
   # pnpm
-  export PNPM_HOME="/home/kevin/.local/share/pnpm"
+  export PNPM_HOME="$HOME/.local/share/pnpm"
 elif [[ $platform == 'macos' ]]; then
 	# Configuration for MAC OS
 
@@ -90,7 +90,7 @@ elif [[ $platform == 'macos' ]]; then
 	export PATH="$HOME/Library/Haskell/bin:$PATH"
 
   # dune
-  export PATH="/Users/kevin/.dune/bin:$PATH"
+  export PATH="$HOME/.dune/bin:$PATH"
 
 	# heroku autocomplete setup
 	HEROKU_AC_ZSH_SETUP_PATH=/Users/kevin/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
@@ -106,7 +106,7 @@ elif [[ $platform == 'macos' ]]; then
 	export CPPFLAGS="-I/opt/homebrew/opt/postgresql@17/include"
 
   # pnpm
-  export PNPM_HOME="/Users/kevin/Library/pnpm"
+  export PNPM_HOME="$HOME/Library/pnpm"
 fi
 
 case ":$PATH:" in
@@ -122,6 +122,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # User configuration
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -153,6 +154,8 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt APPEND_HISTORY            # append to history file
 setopt HIST_NO_STORE             # Don't store history commands
+ HISTSIZE=50000
+ SAVEHIST=10000
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -162,7 +165,7 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Delete already merged branches
 alias gdp="git fetch --prune && echo 'Branches with deleted remotes:' && git branch -vv | grep ': gone]'"
-alias gdm="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
+alias gdm="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs -r  git branch -D"
 
 # Alias gwch to the much shorter gwc
 alias gwc='gwch'
@@ -214,9 +217,6 @@ if [ -f '/Users/kevin/tmp/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/
 # Ensure coreutils e.g. date are first in the PATH
 export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 
-# dotnet tools
-export PATH="$PATH:$HOME/.dotnet/tools"
-
 # GPG signing commits
 export GPG_TTY=$(tty)
 
@@ -236,9 +236,13 @@ eval "$(starship init zsh)"
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh"  > /dev/null 2> /dev/null
 
 # nvm
+# Lazy load nvm for faster shell startup
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() {
+  unset -f nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -247,7 +251,9 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # linuxbrew
 if [ -f '/home/linuxbrew/.linuxbrew/bin/brew shellenv' ]; then eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"; fi
 
-. "$HOME/.local/bin/env"
+if [ -f $HOME/.local/bin/env ]; then 
+  . "$HOME/.local/bin/env"
+fi
 
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
