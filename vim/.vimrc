@@ -228,6 +228,7 @@ nmap <silent> <leader>tv :TestVisit<CR>
 
 " nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeMapActivateNode = '<CR>'
 
