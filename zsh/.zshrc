@@ -54,6 +54,10 @@ plugins=(git direnv brew python gitignore mosh tmux rbenv npm colored-man-pages 
 # Skip verification of insecure directories (speeds up startup)
 ZSH_DISABLE_COMPFIX=true
 
+# Use history search while typing
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
+
 source $ZSH/oh-my-zsh.sh
 
 # Reduce oh-my-zsh update frequency
