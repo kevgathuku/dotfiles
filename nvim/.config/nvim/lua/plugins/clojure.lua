@@ -1,6 +1,7 @@
 return {
   { "guns/vim-sexp" },
   { "tpope/vim-sexp-mappings-for-regular-people" },
+  { "tpope/vim-salve" },
   { "tpope/vim-fireplace" },
   {
     "HiPhish/rainbow-delimiters.nvim",

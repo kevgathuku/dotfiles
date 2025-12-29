@@ -7,6 +7,7 @@ return {
   { "tpope/vim-rails" },
   { "tpope/vim-rhubarb" },
   { "tpope/vim-surround" },
+  { "tpope/vim-projectionist" },
   { "vim-ruby/vim-ruby" },
   { "yegappan/mru" },
   { "tek/vim-textobj-ruby", dependencies = { "kana/vim-textobj-user" } },
