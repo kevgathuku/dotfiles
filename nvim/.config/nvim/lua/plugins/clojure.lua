@@ -1,6 +1,10 @@
 return {
   { "guns/vim-sexp" },
-  { "tpope/vim-sexp-mappings-for-regular-people" },
+  {
+    "tpope/vim-sexp-mappings-for-regular-people",
+    ft = { "clojure" },
+    dependencies = { "guns/vim-sexp" },
+  },
   { "tpope/vim-salve" },
   { "tpope/vim-fireplace" },
   {

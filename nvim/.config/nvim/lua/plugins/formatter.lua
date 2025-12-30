@@ -7,6 +7,7 @@ return {
         eruby = { "rubocop" }, -- for *.erb templates
         rake = { "rubocop" }, -- some setups detect rake files separately
         rust = { "rustfmt", lsp_format = "fallback" },
+        clojure = { "cljfmt" },
       },
       formatters = {
         rubocop = {
@@ -25,6 +26,11 @@ return {
             table.remove(lines, 1)
             return lines
           end,
+        },
+        cljfmt = {
+          command = "lein",
+          args = { "cljfmt", "fix", "$FILENAME" },
+          stdin = false,
         },
       },
       default_format_opts = {
