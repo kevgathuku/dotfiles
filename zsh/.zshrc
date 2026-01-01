@@ -281,6 +281,12 @@ fi
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
+# JDK
+export JAVA_HOME=`/usr/libexec/java_home -v 25`
+
+# enhance lein repl with rlwrap
+alias lein-repl='rlwrap --always-readline --no-children lein repl'
+
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
 
