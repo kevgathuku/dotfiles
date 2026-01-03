@@ -8,6 +8,14 @@ return {
   { "tpope/vim-salve" },
   { "tpope/vim-fireplace" },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        clojure_lsp = {},
+      },
+    },
+  },
+  {
     "HiPhish/rainbow-delimiters.nvim",
     event = "BufReadPost",
     config = function()
