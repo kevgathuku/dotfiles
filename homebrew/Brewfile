@@ -1,8 +1,11 @@
 tap "adoptopenjdk/openjdk"
 tap "auth0/auth0-cli"
 tap "azure/functions"
+tap "babashka/brew"
+tap "borkdude/brew"
 tap "buo/cask-upgrade"
 tap "candid82/brew"
+tap "clojure-lsp/brew"
 tap "clojure/tools"
 tap "codeclimate/formulae"
 tap "coursier/formulas"
@@ -41,6 +44,8 @@ brew "pixman"
 brew "cairo"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Development kit for the Java programming language
+brew "openjdk"
 # Java build tool
 brew "ant"
 # Asynchronous DNS library
@@ -111,6 +116,8 @@ brew "circleci"
 brew "rlwrap"
 # Dynamic, general-purpose programming language
 brew "clojure"
+# Language Server (LSP) for Clojure
+brew "clojure-lsp"
 # Cross-platform make
 brew "cmake"
 # Color-highlighted diff(1) output
@@ -479,6 +486,8 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 # Build, manage and test your Auth0 integrations from the command line
 brew "auth0/auth0-cli/auth0"
+brew "babashka/brew/bbin"
+brew "babashka/brew/neil"
 # Launcher for Coursier
 brew "coursier/formulas/coursier"
 # Terraform
@@ -603,6 +612,8 @@ cask "sublime-text"
 cask "tabula"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin"
 # VPN client for secure internet access and private browsing
 cask "tunnelbear"
 # Free and open-source OpenVPN client
@@ -636,6 +647,8 @@ vscode "alpha4.jsonl"
 vscode "anthropic.claude-code"
 vscode "batisteo.vscode-django"
 vscode "bbenoist.nix"
+vscode "betterthantomorrow.calva"
+vscode "betterthantomorrow.calva-spritz"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
 vscode "castwide.solargraph"
