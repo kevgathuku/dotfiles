@@ -16,6 +16,10 @@ vim.api.nvim_create_user_command("Colors", function()
   })
 end, { desc = "Pick Colorscheme with Telescope" })
 
+vim.keymap.set("n", "<leader>yp", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+end, { desc = "Copy file path (relative)" })
+
 -- Create :Yanks command to open yank history
 vim.api.nvim_create_user_command("Yanks", function()
   -- Call yanky.nvim's telescope picker
@@ -33,3 +37,9 @@ vim.keymap.set("n", "]e", function()
   local count = vim.v.count1
   vim.cmd("move +" .. count)
 end, { desc = "Exchange line down (unimpaired)" })
+
+-- Disable arrow keys to enforce hjkl usage
+vim.keymap.set("n", "<Left>", "<cmd>echoe 'Use h'<CR>", { desc = "Use h instead" })
+vim.keymap.set("n", "<Right>", "<cmd>echoe 'Use l'<CR>", { desc = "Use l instead" })
+vim.keymap.set("n", "<Up>", "<cmd>echoe 'Use k'<CR>", { desc = "Use k instead" })
+vim.keymap.set("n", "<Down>", "<cmd>echoe 'Use j'<CR>", { desc = "Use j instead" })
