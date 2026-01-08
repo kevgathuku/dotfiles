@@ -2,13 +2,6 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
-      formatters_by_ft = {
-        ruby = { "rubocop" },
-        eruby = { "rubocop" }, -- for *.erb templates
-        rake = { "rubocop" }, -- some setups detect rake files separately
-        rust = { "rustfmt", lsp_format = "fallback" },
-        clojure = { "cljfmt" },
-      },
       formatters = {
         rubocop = {
           command = "/home/kevingathuku/workspace/kantox-flow/exe/rubocop",
@@ -28,10 +21,19 @@ return {
           end,
         },
         cljfmt = {
-          command = "lein",
-          args = { "cljfmt", "fix", "$FILENAME" },
+          command = "cljfmt",
+          args = { "fix", "$FILENAME" },
           stdin = false,
         },
+      },
+      formatters_by_ft = {
+        ruby = { "rubocop" },
+        eruby = { "rubocop" }, -- for *.erb templates
+        rake = { "rubocop" }, -- some setups detect rake files separately
+        rust = { "rustfmt", lsp_format = "fallback" },
+        clojure = { "cljfmt" },
+        clojurescript = { "cljfmt" },
+        clojurec = { "cljfmt" },
       },
       default_format_opts = {
         async = true,
