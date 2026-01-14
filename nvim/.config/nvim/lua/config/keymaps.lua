@@ -16,6 +16,10 @@ vim.api.nvim_create_user_command("Colors", function()
   })
 end, { desc = "Pick Colorscheme with Telescope" })
 
+-- Explicit copy to system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>P", '"+p', { desc = "Paste from system clipboard" })
+
 vim.keymap.set("n", "<leader>yp", function()
   vim.fn.setreg("+", vim.fn.expand("%"))
 end, { desc = "Copy file path (relative)" })

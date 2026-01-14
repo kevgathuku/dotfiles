@@ -7,7 +7,7 @@ return {
         storage = "shada", -- persistent history
       },
       system_clipboard = {
-        sync_with_ring = true,
+        sync_with_ring = false,
       },
     },
     keys = {
