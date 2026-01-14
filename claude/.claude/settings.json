@@ -1,4 +1,7 @@
 {
+  "enabledPlugins": {
+    "claude-reflect@claude-reflect-marketplace": true
+  },
   "hooks": {
     "PreToolUse": [
       {

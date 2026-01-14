@@ -1,0 +1,21 @@
+# Claude Code runtime files - don't track
+cache/
+debug/
+downloads/
+file-history/
+history.jsonl
+ide/
+learnings-queue.json
+plans/
+plugins/
+projects/
+session-env/
+shell-snapshots/
+stats-cache.json
+statsig/
+telemetry/
+todos/
+
+# Only track these:
+# !CLAUDE.md
+# !settings.json
