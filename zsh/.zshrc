@@ -267,6 +267,56 @@ for cmd in node npm npx corepack yarn pnpm; do
   eval "${cmd}(){ __nvm_lazy_load; ${cmd} \"\$@\" }"
 done
 
+# Automatic .nvmrc version switching
+autoload -U add-zsh-hook
+load-nvmrc() {
+  # Only run if nvm is already loaded (check if nvm_find_nvmrc function exists)
+  if ! type nvm_find_nvmrc &> /dev/null; then
+    # Check if .nvmrc exists in current directory or parent
+    local nvmrc_path
+    nvmrc_path="$(find-up .nvmrc)"
+
+    # If .nvmrc found, load nvm and switch
+    if [ -n "$nvmrc_path" ]; then
+      # Load nvm first
+      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    else
+      # No .nvmrc, don't load nvm yet (lazy-load will handle it)
+      return
+    fi
+  fi
+
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+# Helper function to find file in current or parent directories
+find-up() {
+  local path=$(pwd)
+  while [[ "$path" != "" && ! -e "$path/$1" ]]; do
+    path=${path%/*}
+  done
+  if [[ -e "$path/$1" ]]; then
+    echo "$path/$1"
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
