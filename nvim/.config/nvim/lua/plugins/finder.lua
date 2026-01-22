@@ -48,7 +48,6 @@ return {
 
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", desc = "Find Files (hidden included)" },
-      { "<C-p>", "<cmd>Telescope find_files hidden=true<cr>", desc = "Find Files (hidden included)" },
     },
   },
 }
