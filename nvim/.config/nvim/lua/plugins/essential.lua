@@ -10,6 +10,5 @@ return {
   { "tpope/vim-projectionist" },
   { "vim-ruby/vim-ruby" },
   { "yegappan/mru" },
-  { "p00f/alabaster.nvim" },
   { "tek/vim-textobj-ruby", dependencies = { "kana/vim-textobj-user" } },
 }
