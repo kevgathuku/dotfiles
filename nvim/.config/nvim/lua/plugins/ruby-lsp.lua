@@ -3,9 +3,10 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        ruby_lsp = { enabled = false },
+        rubocop = { enabled = false },
         solargraph = {
           cmd = { "solargraph", "stdio" },
-          -- optional tweaks:
           settings = {
             solargraph = {
               diagnostics = true,
@@ -13,7 +14,6 @@ return {
             },
           },
         },
-        -- Do NOT enable rubocop as LSP here
       },
     },
   },

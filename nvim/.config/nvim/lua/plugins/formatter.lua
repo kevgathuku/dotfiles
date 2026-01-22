@@ -6,19 +6,11 @@ return {
         rubocop = {
           command = "/home/kevingathuku/workspace/kantox-flow/exe/rubocop",
           args = {
-            "--fix-layout",
-            "--stdin",
+            "--server",
+            "--autocorrect",
             "$FILENAME",
-            "-o",
-            "/tmp/rubocop.log",
           },
-          stdin = true,
-          timeout_ms = 15000, -- 15 seconds
-          postprocess = function(lines)
-            -- Remove the first line of output if needed
-            table.remove(lines, 1)
-            return lines
-          end,
+          stdin = false,
         },
         cljfmt = {
           command = "cljfmt",
@@ -27,7 +19,7 @@ return {
         },
       },
       formatters_by_ft = {
-        ruby = { "rubocop" },
+        ruby = { "rubocop", lsp_format = "never" },
         eruby = { "rubocop" }, -- for *.erb templates
         rake = { "rubocop" }, -- some setups detect rake files separately
         rust = { "rustfmt", lsp_format = "fallback" },
@@ -35,7 +27,8 @@ return {
         clojurescript = { "cljfmt" },
         clojurec = { "cljfmt" },
       },
-      default_format_opts = {
+      format_on_save = {
+        timeout_ms = 15000,
         async = true,
         lsp_fallback = true,
       },
