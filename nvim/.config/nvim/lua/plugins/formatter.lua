@@ -28,11 +28,6 @@ return {
         clojurec = { "cljfmt" },
         ocaml = { "ocamlformat" },
       },
-      format_on_save = {
-        timeout_ms = 15000,
-        async = true,
-        lsp_fallback = true,
-      },
     },
   },
 }
