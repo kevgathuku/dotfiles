@@ -321,13 +321,12 @@ load-nvmrc
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# linuxbrew
-if [ -f '/home/linuxbrew/.linuxbrew/bin/brew shellenv' ]; then eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"; fi
+# guix
+export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 
-if [ -f $HOME/.local/bin/env ]; then 
-  . "$HOME/.local/bin/env"
-fi
-
+GUIX_PROFILE="/home/kevingathuku/.guix-profile"
+. "$GUIX_PROFILE/etc/profile"
+unset GUIX_PROFILE
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
