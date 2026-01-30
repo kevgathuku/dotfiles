@@ -67,19 +67,12 @@ set foldlevel=4
 
 syntax enable
 set termguicolors
+colorscheme default
 
 if !has('gui_running')
   set t_Co=256
 endif
 set noshowmode
-
-" running in vim
-if !has('nvim')
-  colorscheme darkblue
-  if filereadable(expand("~/.vimrc.bundles"))
-    source ~/.vimrc.bundles
-  endif
-endif
 
 " replace add mark key
 nnoremap gm m
