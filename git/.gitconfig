@@ -12,6 +12,7 @@
   ignorecase = false
 [push]
   default = simple
+	autoSetupRemote = true
 [alias]
 	unstage = reset HEAD --
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
