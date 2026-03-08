@@ -1,7 +1,5 @@
 {
-  "enabledPlugins": {
-    "claude-reflect@claude-reflect-marketplace": true
-  },
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -35,5 +33,10 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "claude-reflect@claude-reflect-marketplace": true
+  },
+  "includeCoAuthoredBy": false,
+  "autoUpdatesChannel": "stable"
 }
