@@ -1,4 +1,5 @@
 tap "adoptopenjdk/openjdk"
+tap "anomalyco/tap"
 tap "auth0/auth0-cli"
 tap "azure/functions"
 tap "babashka/brew"
@@ -9,6 +10,7 @@ tap "clojure-lsp/brew"
 tap "clojure/tools"
 tap "codeclimate/formulae"
 tap "coursier/formulas"
+tap "d12frosted/emacs-plus"
 tap "dunglas/frankenphp"
 tap "eosio/eosio"
 tap "ethereum/ethereum"
@@ -28,8 +30,8 @@ tap "samritchie/forge"
 tap "serokell/tezos-packaging-stable", "https://github.com/serokell/tezos-packaging-stable.git"
 tap "shivammathur/php"
 tap "symfony-cli/tap"
-tap "tezostaqueria/taqueria", "https://github.com/TezosTaqueria/taqueria"
 tap "vitorgalvao/tiny-scripts"
+tap "weavejester/brew"
 # Library for manipulating PNG images
 brew "libpng"
 # GNU internationalization (i18n) and localization (l10n) library
@@ -52,18 +54,16 @@ brew "ant"
 brew "c-ares"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
-# Protocol buffers (Google's data interchange format)
-brew "protobuf"
 # Next generation open source RPC library and framework
 brew "grpc"
-# Library for command-line editing
-brew "readline"
 # Clean C library for processing UTF-8 Unicode data
 brew "utf8proc"
 # Columnar in-memory analytics layer designed to accelerate big data
 brew "apache-arrow"
 # C library implementing the SSH2 protocol
 brew "libssh2"
+# Library for command-line editing
+brew "readline"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Record and share terminal sessions
@@ -160,6 +160,8 @@ brew "dnsmasq", restart_service: :changed
 brew "docker"
 # Text processing system for reStructuredText
 brew "docutils"
+# Git for Data
+brew "dolt"
 # Convert text between DOS, UNIX, and Mac formats
 brew "dos2unix"
 # .NET Core
@@ -202,14 +204,8 @@ brew "faac"
 brew "fd"
 # High quality MPEG Audio Layer III (MP3) encoder
 brew "lame"
-# High-performance, high-quality MPEG-4 video library
-brew "xvid"
-# High-performance, asynchronous messaging library
-brew "zeromq"
-# Play, record, convert, and stream audio and video
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
-# GNU compiler collection
-brew "gcc"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
 # Command-line tools for fly.io services
@@ -220,18 +216,8 @@ brew "fop"
 brew "freeglut"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# X.509 and CMS library
-brew "libksba"
-# GNU Privacy Guard (OpenPGP)
-brew "gnupg"
-# Database of common MIME types
-brew "shared-mime-info"
-# Adds spatial SQL capabilities to SQLite
-brew "libspatialite"
-# PDF rendering library (based on the xpdf-3.0 code base)
-brew "poppler"
-# Geospatial Data Abstraction Library
-brew "gdal"
+# GNU compiler collection
+brew "gcc"
 # GNU database manager
 brew "gdbm"
 # Toolkit for image loading and pixel buffer manipulation
@@ -252,10 +238,16 @@ brew "git-lfs"
 brew "gnu-sed"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
+# X.509 and CMS library
+brew "libksba"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Apply a diff file to an original
 brew "gpatch"
+# Database of common MIME types
+brew "shared-mime-info"
 # Image processing tools collection
 brew "graphicsmagick"
 # Image manipulation
@@ -288,7 +280,7 @@ brew "httpie"
 brew "httrack"
 # Configurable static site generator
 brew "hugo"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # String tool
 brew "intltool"
@@ -326,6 +318,8 @@ brew "libmemcached"
 brew "libvo-aacenc"
 # C XSLT library for GNOME
 brew "libxslt"
+# Just-In-Time Compiler (JIT) for the Lua programming language
+brew "luajit"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Data compression library
@@ -342,10 +336,10 @@ brew "mise"
 brew "node"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
 # Remote terminal application
 brew "mosh"
-# General-purpose lossless data-compression library
-brew "zlib"
 # Open source relational database management system
 brew "mysql", restart_service: :changed
 # NCurses Disk Usage
@@ -376,6 +370,8 @@ brew "pipenv"
 brew "planck"
 # Fast, disk space efficient package manager
 brew "pnpm"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Object-relational database system
 brew "postgresql@17", restart_service: :changed
 # Framework for managing multi-language pre-commit hooks
@@ -406,6 +402,8 @@ brew "reattach-to-user-namespace"
 brew "rebar3"
 # Persistent key-value database, with built-in net interface
 brew "redis", restart_service: :changed
+# Command-line interface for Render
+brew "render"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
@@ -468,12 +466,18 @@ brew "wget"
 brew "wifi-password"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
+# High-performance, high-quality MPEG-4 video library
+brew "xvid"
 # JavaScript package manager
 brew "yarn"
 # Modular BSD reimplementation of NASM
 brew "yasm"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# High-performance, asynchronous messaging library
+brew "zeromq"
+# General-purpose lossless data-compression library
+brew "zlib"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
@@ -484,10 +488,14 @@ brew "zsh-autopair"
 brew "zsh-completions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode"
 # Build, manage and test your Auth0 integrations from the command line
 brew "auth0/auth0-cli/auth0"
 brew "babashka/brew/bbin"
 brew "babashka/brew/neil"
+# A minimal and opinionated linter for Clojure code that sparks joy.
+brew "borkdude/brew/clj-kondo"
 # Launcher for Coursier
 brew "coursier/formulas/coursier"
 # Terraform
@@ -495,21 +503,23 @@ brew "hashicorp/tap/terraform"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # High-performance, schema-free, document-oriented database
-brew "mongodb/brew/mongodb-community"
+brew "mongodb/brew/mongodb-community", link: false
 # High-performance, schema-free, document-oriented database
-brew "mongodb/brew/mongodb-community@7.0", link: false
+brew "mongodb/brew/mongodb-community@7.0"
 # Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure
 brew "symfony-cli/tap/symfony-cli"
-# Extensible, open-source plugin-based framework and task runner for Tezos development with a CLI and a library of plugins.
-brew "tezostaqueria/taqueria/taqueria"
 # Quickly repair outdated/broken Casks from homebrew-cask
 brew "vitorgalvao/tiny-scripts/cask-repair"
+# A tool for formatting Clojure code
+brew "weavejester/brew/cljfmt"
 # Collaborative design tool with support for Sketch files
 cask "abstract"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
+# Tools for building Android applications
+cask "android-studio"
 # Control web-based media players with media keys
 cask "beardedspice"
 # Cross platform SQL editor and database management app
@@ -530,6 +540,8 @@ cask "db-browser-for-sqlite"
 cask "discord"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
+# GNU Emacs text editor with patches for macOS
+cask "d12frosted/emacs-plus/emacs-plus-app"
 # Reimagine your terminal
 cask "fig"
 cask "font-fira-code"
@@ -635,66 +647,49 @@ cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Bear", id: 1091189122
+mas "iMovie", id: 408981434
 mas "Kindle", id: 302584613
+mas "MD Viewer", id: 6752493034
 mas "Microsoft To Do", id: 1274495053
+mas "Numbers", id: 361304891
 mas "PDFOptim", id: 621276561
 mas "Speedtest", id: 1153157709
 mas "UpNote", id: 1398373917
 mas "Xcode", id: 497799835
 vscode "aaron-bond.better-comments"
 vscode "alexandernanberg.horizon-theme-vscode"
-vscode "alpha4.jsonl"
 vscode "anthropic.claude-code"
-vscode "batisteo.vscode-django"
 vscode "bbenoist.nix"
 vscode "betterthantomorrow.calva"
-vscode "betterthantomorrow.calva-spritz"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
 vscode "castwide.solargraph"
-vscode "chenglou92.rescript-vscode"
 vscode "chiragpat.vscode-glimmer"
-vscode "christian-kohler.npm-intellisense"
-vscode "cooproton.folabelle"
 vscode "davidanson.vscode-markdownlint"
-vscode "dbaeumer.vscode-eslint"
-vscode "deerawan.vscode-dash"
-vscode "denoland.vscode-deno"
-vscode "devonray.snippet"
 vscode "donjayamanne.githistory"
 vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
-vscode "elmtooling.elm-ls-vscode"
-vscode "embertooling.vscode-ember"
+vscode "gargakshit.theme-alabaster-dark"
 vscode "github.codespaces"
-vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "github.github-vscode-theme"
 vscode "github.vscode-github-actions"
 vscode "gruntfuggly.todo-tree"
 vscode "hbenl.vscode-test-explorer"
-vscode "huytd.nord-light"
 vscode "jakebecker.elixir-ls"
-vscode "jimmydc.js--snippet-good"
 vscode "karunamurti.haml"
-vscode "lifeart.vscode-glimmer-syntax"
-vscode "ligolang-publish.ligo-vscode"
 vscode "mbessey.vscode-rufo"
 vscode "mechatroner.rainbow-csv"
 vscode "misogi.ruby-rubocop"
-vscode "ms-azuretools.vscode-containers"
-vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.debugpy"
 vscode "ms-python.isort"
 vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
 vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-wsl"
 vscode "ms-vscode-remote.vscode-remote-extensionpack"
 vscode "ms-vscode.atom-keybindings"
-vscode "ms-vscode.cmake-tools"
-vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpp-devtools"
 vscode "ms-vscode.cpptools-extension-pack"
 vscode "ms-vscode.cpptools-themes"
 vscode "ms-vscode.makefile-tools"
@@ -704,31 +699,19 @@ vscode "nomicfoundation.hardhat-solidity"
 vscode "ocamllabs.ocaml-platform"
 vscode "octref.vetur"
 vscode "pgourlain.erlang"
-vscode "phanitejakomaravolu.emberes6snippets"
 vscode "phoenixframework.phoenix"
 vscode "prisma.prisma"
 vscode "rust-lang.rust-analyzer"
-vscode "samwinslow.vscode-coffeescript-haml"
-vscode "scala-lang.scala"
-vscode "scalameta.metals"
 vscode "shopify.ruby-lsp"
 vscode "syler.sass-indented"
-vscode "syler.vscode-haml-formatter"
-vscode "sysoev.language-stylus"
 vscode "taber.do-end-match"
 vscode "tamasfe.even-better-toml"
-vscode "tauri-apps.tauri-vscode"
-vscode "tezostaqueria.taqueria-official"
-vscode "th7org.eco"
 vscode "thenouillet.symfony-vscode"
 vscode "vincentfiestada.cold-horizon-vscode"
-vscode "vortizhe.simple-ruby-erb"
 vscode "vscode-icons-team.vscode-icons"
 vscode "vue.volar"
 vscode "waderyan.gitblame"
 vscode "whatwedo.twig"
-vscode "william-voyek.vscode-nginx"
-vscode "yoavbls.pretty-ts-errors"
-vscode "zhuangtongfa.material-theme"
 cargo "rustlings"
 cargo "typos-cli"
+uv "specify-cli"
