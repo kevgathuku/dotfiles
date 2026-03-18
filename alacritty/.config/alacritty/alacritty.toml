@@ -7,7 +7,10 @@ normal = { family = "SauceCodePro Nerd Font Mono", style = "Regular" }
 
 [general]
 import = [
-    # "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
-     "~/.config/alacritty/themes/themes/argonaut.toml"
-    #"~/.config/alacritty/themes/themes/hardhacker.toml"
+  # "~/.config/alacritty/themes/themes/gruvbox_dark.toml",
+  # "~/.config/alacritty/themes/themes/github_light_high_contrast.toml",
+  # "~/.config/alacritty/themes/themes/argonaut.toml",
+  # "~/.config/alacritty/themes/themes/solarized_light.toml",
+  # "~/.config/alacritty/themes/themes/solarized_dark.toml",
+  "~/.config/alacritty/themes/themes/rose_pine_dawn.toml",
 ]
