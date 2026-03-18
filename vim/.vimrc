@@ -209,7 +209,7 @@ autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 
 
 " vim-test ruby mappings
-let test#ruby#rspec#executable = 'docker exec -it kantox-flow-app-1 bundle exec rspec'
+let test#ruby#rspec#executable = 'docker exec -it kantox-flow-app-1 bundle exec bin/rspec'
 let test#ruby#rspec#options = {
   \'file': '--format documentation',
 \}
