@@ -167,6 +167,16 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
+# Toggle Alacritty theme between light and dark
+swap-theme() {
+  local config="$HOME/.config/alacritty/alacritty.toml"
+  case "$1" in
+    light) sed -i '' 's|rose_pine_moon|rose_pine_dawn|' "$config" ;;
+    dark)  sed -i '' 's|rose_pine_dawn|rose_pine_moon|' "$config" ;;
+    *)     echo "Usage: swap-theme [light|dark]" ;;
+  esac
+}
+
 # Delete already merged branches
 alias gdp="git fetch --prune && echo 'Branches with deleted remotes:' && git branch -vv | grep ': gone]'"
 alias gdm="git fetch --prune && git branch -vv | grep ': gone]' | awk '{print \$1}' | xargs -r  git branch -D"
