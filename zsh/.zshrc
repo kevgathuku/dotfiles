@@ -176,11 +176,13 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 # Toggle Alacritty theme between light and dark
 swap-theme() {
   local config="$HOME/.config/alacritty/alacritty.toml"
-  case "$1" in
-    light) sed -i '' 's|rose_pine_moon|rose_pine_dawn|' "$config" ;;
-    dark)  sed -i '' 's|rose_pine_dawn|rose_pine_moon|' "$config" ;;
-    *)     echo "Usage: swap-theme [light|dark]" ;;
-  esac
+  if grep -q 'rose_pine_dawn' "$config"; then
+    sed -i '' 's|rose_pine_dawn|rose_pine_moon|' "$config"
+    echo "Switched to dark (Rose Pine Moon)"
+  else
+    sed -i '' 's|rose_pine_moon|rose_pine_dawn|' "$config"
+    echo "Switched to light (Rose Pine Dawn)"
+  fi
 }
 
 # Delete already merged branches
