@@ -90,6 +90,12 @@ if [[ $platform == 'linux' ]]; then
 
   # pnpm
   export PNPM_HOME="$HOME/.local/share/pnpm"
+
+	# guix
+	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+	GUIX_PROFILE="/home/kevingathuku/.guix-profile"
+	. "$GUIX_PROFILE/etc/profile"
+	unset GUIX_PROFILE
 elif [[ $platform == 'macos' ]]; then
 	# Configuration for MAC OS
 
@@ -330,13 +336,6 @@ load-nvmrc
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-# guix
-export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
-
-GUIX_PROFILE="/home/kevingathuku/.guix-profile"
-. "$GUIX_PROFILE/etc/profile"
-unset GUIX_PROFILE
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
