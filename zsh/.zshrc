@@ -117,6 +117,11 @@ elif [[ $platform == 'macos' ]]; then
 
   # pnpm
   export PNPM_HOME="$HOME/Library/pnpm"
+
+  # Homebrew's bin ahead of /usr/bin
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  export PATH="$(python3 -m site --user-base)/bin:$PATH"
+
 fi
 
 case ":$PATH:" in
