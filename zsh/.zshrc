@@ -82,10 +82,7 @@ if [[ $platform == 'linux' ]]; then
 	# kantox
 	alias ecs_cli="$HOME/workspace/infrastructure-ecs/cli/bin/dcli"
 
-  # dotnet tools
-  export PATH="$PATH:$HOME/.dotnet/tools"
-
-	# Others
+  # Others
   export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
   # pnpm
@@ -105,8 +102,6 @@ elif [[ $platform == 'macos' ]]; then
   # dune
   export PATH="$HOME/.dune/bin:$PATH"
 
-  # dotnet root
-  export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 
@@ -368,3 +363,13 @@ alias lein-repl='rlwrap --always-readline --no-children lein repl'
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(mise activate zsh)"
+
+# sml
+export PATH=/usr/local/smlnj/bin:"$PATH"
+
+# >>> ara cli (managed by Ara Desktop) >>>
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+# <<< ara cli (managed by Ara Desktop) <<<
