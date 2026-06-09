@@ -26,6 +26,7 @@ return {
         clojure = { "cljfmt" },
         clojurescript = { "cljfmt" },
         clojurec = { "cljfmt" },
+        fsharp = { "fantomas" },
         ocaml = { "ocamlformat" },
       },
     },

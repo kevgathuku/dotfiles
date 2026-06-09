@@ -3,6 +3,7 @@ return {
   opts = {
     ensure_installed = {
       "clojure",
+      "fsharp",
       "ocaml",
       "ocaml_interface",
     },
