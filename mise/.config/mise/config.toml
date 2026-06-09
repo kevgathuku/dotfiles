@@ -1,0 +1,5 @@
+[tools]
+dotnet = "latest"
+
+[env]
+_.path = ["{{env.HOME}}/.dotnet/tools"]
