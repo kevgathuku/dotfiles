@@ -1,6 +1,7 @@
 
 [env]
 term = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1"
 [font]
 size = 14.5
 normal = { family = "SauceCodePro Nerd Font Mono", style = "Regular" }
