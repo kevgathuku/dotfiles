@@ -1,10 +1,11 @@
 ;; Guix package manifest
-;; Install with: guix package --manifest=~/.config/guix/manifest.scm
+;; Install with: guix package --manifest=$HOME/.config/guix/manifest.scm
 
 (specifications->manifest
   '(;; Shells & Terminal
     "zsh"
     "zsh-syntax-highlighting"
+    "zsh-autopair"
     "tmux"
     "starship"
     "alacritty"
@@ -29,16 +30,18 @@
     ;; Programming Languages
     "clojure"
     ;; "babashka"  ; not in guix, install via: bash < <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install)
-    "erlang"
-    "elixir"
+    ;; "erlang"  ; managed by mise
+    ;; "elixir"  ; managed by mise (requires erlang)
     "go"
-    "node"
-    ;; "deno"  ; not in guix
+    ;; "node"  ; managed by mise
+    ;; "deno"  ; managed by mise
     "ocaml"
     "opam"
     "guile"
-    "python"
-    "ruby"
+    "rust"
+    "rust-analyzer"
+    ;; "python"  ; managed by mise
+    ;; "ruby"  ; managed by mise
 
     ;; Build Tools
     "cmake"
@@ -53,14 +56,16 @@
     "wget"
     "htop"
     "jq"
+    "awscli"
     "difftastic"
+    "diff-so-fancy"
     "direnv"
     "stow"
     "gnupg"
     "unzip"
     "dos2unix"
     "tldr"
-    "httpie"
+    "curlie"
     "mosh"
     "socat"
     "rlwrap"
@@ -85,4 +90,13 @@
     "grep"
     "sed"
     "gawk"
-    "tar"))
+    "tar"
+
+    ;; X11
+    "setxkbmap"
+
+    ;; Certificates
+    "nss-certs"
+
+    ;; Locales
+    "glibc-locales"))
