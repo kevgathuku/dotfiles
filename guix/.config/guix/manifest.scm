@@ -39,6 +39,7 @@
     "opam"
     "guile"
     "rust"
+    "rust:cargo"
     "rust-analyzer"
     ;; "python"  ; managed by mise
     ;; "ruby"  ; managed by mise
