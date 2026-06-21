@@ -60,11 +60,7 @@ ZSH_DISABLE_COMPFIX=true
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
-source $ZSH/oh-my-zsh.sh
-
-# Reduce oh-my-zsh update frequency
-zstyle ':omz:update' frequency 30
-
+# Platform detection (before oh-my-zsh so Guix tools are on PATH first)
 platform='unknown'
 unamestr=`uname`
 
@@ -73,6 +69,22 @@ if [[ "$unamestr" == 'Linux' ]]; then
 elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='macos'
 fi
+
+# Source Guix profile before oh-my-zsh so Guix-installed tools (direnv, tmux)
+# are on PATH when plugins load
+if [[ $platform == 'linux' ]]; then
+	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+	GUIX_PROFILE="/home/kevingathuku/.guix-profile"
+	. "$GUIX_PROFILE/etc/profile"
+	export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+	export GIT_SSL_CAINFO="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+	unset GUIX_PROFILE
+fi
+
+source $ZSH/oh-my-zsh.sh
+
+# Reduce oh-my-zsh update frequency
+zstyle ':omz:update' frequency 30
 
 if [[ $platform == 'linux' ]]; then
 	# Configuration for linux
@@ -89,12 +101,6 @@ if [[ $platform == 'linux' ]]; then
 
   # pnpm
   export PNPM_HOME="$HOME/.local/share/pnpm"
-
-	# guix
-	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
-	GUIX_PROFILE="/home/kevingathuku/.guix-profile"
-	. "$GUIX_PROFILE/etc/profile"
-	unset GUIX_PROFILE
 elif [[ $platform == 'macos' ]]; then
 	# Configuration for MAC OS
 

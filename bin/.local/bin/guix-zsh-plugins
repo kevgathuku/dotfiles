@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Install Guix-installed zsh plugins into oh-my-zsh's custom plugins directory.
+# Creates wrapper files with oh-my-zsh's expected .plugin.zsh naming convention.
+# Run after `guix package` updates that add/change zsh plugins.
+set -euo pipefail
+
+GUIX_PLUGINS="${HOME}/.guix-profile/share/zsh/plugins"
+OMZ_CUSTOM="${HOME}/.oh-my-zsh/custom/plugins"
+
+if [[ ! -d "$GUIX_PLUGINS" ]]; then
+  echo "guix-zsh-plugins: no guix zsh plugins found at $GUIX_PLUGINS" >&2
+  exit 0
+fi
+
+mkdir -p "$OMZ_CUSTOM"
+
+linked=0
+for plugin in "$GUIX_PLUGINS"/*; do
+  [[ -d "$plugin" ]] || continue
+  name=$(basename "$plugin")
+  target_dir="$OMZ_CUSTOM/$name"
+  wrapper="$target_dir/$name.plugin.zsh"
+
+  # Find the main plugin file (name.zsh, not name.plugin.zsh)
+  main_file=""
+  for candidate in "$plugin/$name.zsh" "$plugin/$name.plugin.zsh"; do
+    if [[ -f "$candidate" ]]; then
+      main_file="$candidate"
+      break
+    fi
+  done
+  if [[ -z "$main_file" ]]; then
+    echo "guix-zsh-plugins: skipping $name (no $name.zsh found)" >&2
+    continue
+  fi
+
+  # If wrapper already points to the right file, skip
+  if [[ -f "$wrapper" ]]; then
+    existing=$(sed -n 's/^source "\([^"]*\)"/\1/p' "$wrapper" 2>/dev/null)
+    if [[ "$existing" == "$main_file" ]]; then
+      continue
+    fi
+  fi
+
+  mkdir -p "$target_dir"
+  echo "source \"$main_file\"" > "$wrapper"
+  echo "guix-zsh-plugins: installed $name"
+  linked=$((linked + 1))
+done
+
+if [[ $linked -eq 0 ]]; then
+  echo "guix-zsh-plugins: all up to date"
+fi
