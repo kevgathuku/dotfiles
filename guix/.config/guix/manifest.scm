@@ -44,6 +44,16 @@
     ;; "python"  ; managed by mise
     ;; "ruby"  ; managed by mise
 
+    ;; Ruby build dependencies (for ruby-build / mise)
+    "zlib"
+    "openssl"
+    "readline"
+    "libyaml"
+    "libffi"
+    "gdbm"
+    "ncurses"
+    "bdb"
+
     ;; Build Tools
     "cmake"
     "ninja"
@@ -70,6 +80,7 @@
     "mosh"
     "socat"
     "rlwrap"
+    "openvpn"
 
     ;; Media
     "imagemagick"
@@ -95,6 +106,7 @@
 
     ;; X11
     "setxkbmap"
+    "xsel"
 
     ;; Certificates
     "nss-certs"
