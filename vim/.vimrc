@@ -1,6 +1,10 @@
 scriptencoding utf-8
 set encoding=utf-8
 set nocompatible      " We're running Vim, not Vi!
+
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 syntax on             " Enable syntax highlighting
 set expandtab
 set tabstop=2
