@@ -136,7 +136,7 @@ esac
 
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
-. "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # User configuration
 export PATH="/usr/local/sbin:$PATH"
@@ -289,7 +289,9 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 # JDK
-export JAVA_HOME=`/usr/libexec/java_home -v 25`
+if [[ -x /usr/libexec/java_home ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home -v 25)
+fi
 
 # enhance lein repl with rlwrap
 alias lein-repl='rlwrap --always-readline --no-children lein repl'
