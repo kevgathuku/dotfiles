@@ -1,5 +1,6 @@
 [tools]
 dotnet = "latest"
+node = "24"
 
 [env]
 _.path = ["{{env.HOME}}/.dotnet/tools"]
