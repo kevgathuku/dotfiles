@@ -3,7 +3,10 @@ dotnet = "latest"
 erlang = "latest"
 node = "24"
 rebar = { version = "latest", asset_pattern = "rebar3" }
-ruby = "3.0.7"
+ruby = "3.3"
 
 [env]
 _.path = ["{{env.HOME}}/.dotnet/tools"]
+
+[settings.ruby]
+compile = false
