@@ -71,7 +71,7 @@
     "mosh"
     "socat"
     "rlwrap"
-    "openvpn"
+    ;; "openvpn"  ; openvpn3 not in guix, install via upstream apt repo
 
     ;; Media
     "imagemagick"

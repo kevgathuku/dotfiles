@@ -76,7 +76,8 @@ if [[ $platform == 'linux' ]]; then
 	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 	GUIX_PROFILE="/home/kevingathuku/.guix-profile"
 	. "$GUIX_PROFILE/etc/profile"
-	export PATH="$HOME/.config/guix/current/bin${PATH:+:$PATH}"
+export PATH="$HOME/.config/guix/current/bin${PATH:+:$PATH}"
+	unset LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH OBJC_INCLUDE_PATH OBJCPLUS_INCLUDE_PATH
 	export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 	export GIT_SSL_CAINFO="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 	unset GUIX_PROFILE
