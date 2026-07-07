@@ -70,14 +70,15 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='macos'
 fi
 
-# Source Guix profile before oh-my-zsh so Guix-installed tools (direnv, tmux)
-# are on PATH when plugins load
-if [[ $platform == 'linux' ]]; then
-	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
-	GUIX_PROFILE="/home/kevingathuku/.guix-profile"
+# Source Guix profile if .zprofile hasn't already (non-login interactive shells,
+# e.g. tmux panes). Login shells do this in ~/.zprofile. The C-compiler
+# include/library paths and CMAKE_PREFIX_PATH are cleared so system-compiler
+# builds keep using system C libraries (Guix's would break e.g. ruby 3.0.7).
+if [[ $platform == 'linux' && -z "$GUIX_LOCPATH" && -f "$HOME/.guix-profile/etc/profile" ]]; then
+	GUIX_PROFILE="$HOME/.guix-profile"
 	. "$GUIX_PROFILE/etc/profile"
-export PATH="$HOME/.config/guix/current/bin${PATH:+:$PATH}"
-	unset LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH OBJC_INCLUDE_PATH OBJCPLUS_INCLUDE_PATH
+	export PATH="$HOME/.config/guix/current/bin${PATH:+:$PATH}"
+	unset LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH OBJC_INCLUDE_PATH OBJCPLUS_INCLUDE_PATH CMAKE_PREFIX_PATH
 	export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 	export GIT_SSL_CAINFO="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 	unset GUIX_PROFILE
