@@ -30,8 +30,9 @@
     ;; Programming Languages
     "clojure"
     ;; "babashka"  ; not in guix, install via: bash < <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install)
-    ;; "erlang"  ; managed by mise
-    ;; "elixir"  ; managed by mise (requires erlang)
+    "erlang"
+    "elixir"  ; depends on erlang + rebar3 (Guix keeps the set coordinated)
+    "rebar3"
     "go"
     ;; "node"  ; managed by mise
     ;; "deno"  ; managed by mise

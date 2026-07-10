@@ -168,3 +168,143 @@ export PATH="$HOME/.cargo/bin:$PATH"
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"   # rustup-style; absent with Guix cargo
 ```
 
+`mempal` is installed this way (see Known Issues for the build flag it needs).
+
+## Known Issues
+
+### `mempal` release build crashes (`free(): invalid pointer` / SIGSEGV) — RESOLVED
+
+A plain `cargo install mempal --locked` produces a binary that aborts on every
+subcommand that opens the DB (`doctor`, `init`, `ingest`, `search`, …) with
+`free(): invalid pointer`, leaving a 0-byte `~/.mempal/palace.db`.
+
+**Root cause** (confirmed via gdb on a `debug=true, strip=false` rebuild):
+mempal's `Cargo.toml` sets `[profile.release] opt-level = "z"`, which cargo
+forwards to build scripts as `OPT_LEVEL=z`. The `cc` crate then compiles the
+**bundled `sqlite3.c`** (from `libsqlite3-sys`, pulled by `rusqlite`'s
+`bundled` feature) with **`gcc-15 -Oz`**, and gcc-15 miscompiles the sqlite3
+amalgamation. The corruption fires in `sqlite3_overload_function("MATCH")`
+during `openDatabase`, on every connection open. The abort stack:
+
+```
+free ← sqlite3_free ← sqlite3_overload_function
+     ← sqlite3RegisterPerConnectionBuiltinFunctions ← openDatabase
+     ← rusqlite::Connection::open ← mempal_store_sqlite::Database::open
+```
+
+Ruled out:
+- **glibc/loader mismatch** — the binary's interpreter and its runtime
+  `libc.so.6` are the same Guix store glibc (`m31vlvwm…-glibc-2.41`); forcing
+  `LD_LIBRARY_PATH` to that store dir does not help.
+- **mempal version** — reproduces on 0.7.0, 0.8.0, 0.9.0.
+- **LTO** — `CARGO_PROFILE_RELEASE_LTO=false` still crashes.
+- **`-O2`** — `CFLAGS="-O2"` changes the symptom to SIGSEGV (still crashes);
+  gcc-15 miscompiles `sqlite3.c` at both `-Oz` and `-O2`. Only `-O0` (the dev
+  profile) is safe.
+
+**Fix** — keep Rust at release, force `sqlite3.c` to `-O0`:
+
+```bash
+CFLAGS="-O0" cargo install mempal --locked --force
+```
+
+Verified end-to-end: `doctor`, `init`, `ingest`, `compress`, `status`, and
+`search` (both BM25 keyword `[0.147]` and vector semantic `[-0.148]` via
+model2vec + sqlite-vec) all succeed; `palace.db` initializes to a real size.
+
+Trade-off: sqlite runs unoptimized (slower DB ops); Rust code stays
+release-optimized. If a faster build is wanted, try
+`CFLAGS="-O2 -fno-tree-vectorize"` (disables gcc's auto-vectorization, the
+usual sqlite+gcc culprit) — untested here. Revisit once gcc-15 or libsqlite3-sys
+ships a fix; until then, **always pass `CFLAGS="-O0"` when reinstalling
+mempal**, or the crash returns.
+
+### `mise install erlang` fails ("No curses library functions found") — RESOLVED (by moving erlang to Guix)
+
+`mise install erlang` (kerl source build of OTP) died in `erts/configure`:
+
+```
+checking for tgetent in -ltinfo... no
+checking for tgetent in -lncurses... no
+...
+configure: error: No curses library functions found
+```
+
+**Root cause** — the same Guix/system compiler mixup described above. autoconf
+picks the C compiler by searching PATH in order `gcc cc …` (when `CC` is unset).
+`gcc` resolves to the **Guix** gcc-16 (`~/.guix-profile/bin/gcc`), whose built-in
+search dirs are `/gnu/store/…` only — it cannot see apt-installed
+`/usr/lib/x86_64-linux-gnu/libncurses.so` / `libtinfo.so`, so every curses link
+check fails. (`cc` → system gcc-15 would work, but autoconf tries `gcc` first.)
+
+Confirmed: `~/.guix-profile/bin/gcc -print-search-dirs` lists only `/gnu/store`
+paths; a trivial `#include <openssl/ssl.h>` + `-lssl` fails under Guix gcc even
+with `-I/usr/include -L/usr/lib/x86_64-linux-gnu` (multiarch
+`/usr/include/x86_64-linux-gnu/openssl/opensslconf.h` is still missed). The
+system `/usr/bin/gcc` (→ gcc-15) links both fine. The `.zprofile`/`.zshrc`
+unsets don't help: kerl inherits the *launching* shell's env, and `cc` is not
+the issue — `gcc` is, because autoconf prefers it.
+
+**Resolution — move erlang (and the BEAM ecosystem) to Guix native packages.**
+
+erlang is the *opposite* case to ruby 3.0.7: it is current and happy with Guix's
+newer openssl/ncurses, so it belongs on the Guix toolchain, not forced onto the
+system one. Instead of working around the compiler mixup per-tool (an
+`install_env` with `CC=/usr/bin/gcc` would build erl against *system* libs but
+then face a runtime ABI risk — erl linked to system `libssl.so.3` while Guix
+openssl headers were used), the clean fix is to drop the source build entirely.
+Guix ships a prebuilt OTP whose runtime libs are RPATH-correct, so there is no
+compiler selection, no lib-resolution, and no ABI mismatch to manage.
+
+Guix packages the whole coordinated set (versions as of this writing):
+
+| tool    | Guix version | depends on (Guix graph)        |
+|---------|--------------|--------------------------------|
+| erlang  | 28.4.3       | ncurses, openssl, wxwidgets, … |
+| rebar3  | 3.24.0       | erlang@28.4.3                  |
+| elixir  | 1.19.5       | erlang@28.4.3, rebar3@3.24.0   |
+
+Files changed:
+
+- `guix/.config/guix/manifest.scm` — uncommented `"erlang"`, `"elixir"`; added
+  `"rebar3"`. (`~/.config/guix` is a dir-level symlink to the repo's
+  `guix/.config/guix`, so the edit is live on deploy — no `stow` step needed.)
+- `mise/.config/mise/config.toml` — removed `erlang` and `rebar` (+ the
+  `install_env` workaround). Global mise now holds only dotnet/node/ruby.
+- Removed the kerl build: `mise uninstall erlang@29.0.3 rebar@3.27.0` and cleared
+  `~/.cache/mise/erlang` + `~/.local/share/mise/installs/{erlang,rebar}`
+  (~GB freed).
+
+Installed with `guix package -i erlang elixir rebar3` (additive, not
+`--manifest`, to avoid surprise-removing anything outside the manifest). The
+generic "Consider setting the necessary environment variables" hint prints
+afterward — unsuppressible and already handled by `.zprofile`/`.zshrc`; ignore
+it (see "Guix Workflow and the Generic Hint" above).
+
+**Runtime lib resolution is RPATH-correct, no `LD_LIBRARY_PATH`.** This is the
+key advantage over a mise source build. The crypto NIF carries its own RUNPATH:
+
+```
+$ readelf -d …/crypto-5.8.3/priv/lib/crypto.so | grep RUNPATH
+RUNPATH: /gnu/store/…-openssl-3.5.7/lib:/usr/local/lib:…:/gnu/store/…-glibc-2.41/lib:…
+$ ldd …/crypto.so | grep libcrypto
+  libcrypto.so.3 => /gnu/store/…-openssl-3.5.7/lib/libcrypto.so.3
+```
+
+The Guix store path is first, so Guix openssl wins at runtime regardless of the
+dynamic-loader cache pointing at `/usr/lib/…/libssl.so.3`. Verified with all
+leak vars unset and `LD_LIBRARY_PATH` empty: `ssl:start(), ssl:connect(...)`
+succeeds → TLS works with zero env help.
+
+Verified: `erl -version` → ERTS 16.3.1 (OTP 28); `rebar3 version` → "rebar
+3.24.0 on Erlang/OTP 28 Erts 16.3.1"; `elixir --version` → "Elixir 1.19.5
+(compiled with Erlang/OTP 28)". All resolve to `~/.guix-profile/bin/`.
+
+Trade-off: Guix tracks OTP **28**, not "latest" (29), so there is a ~one-major
+version lag and no per-project erlang version pinning (Guix gives one global
+version). Acceptable because the erlang+rebar3+elixir set is Guix-tested
+together, which a self-assembled mise trio is not. Upgrade with the usual
+`guix package -u`. The ruby case is unaffected — ruby 3.0.7 still needs the
+system C libs, so the `.zprofile`/`.zshrc` unsets stay (and ruby stays in mise,
+`compile = false`).
+
