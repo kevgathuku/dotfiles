@@ -1,4 +1,7 @@
 
+# Disable terminal flow control so Ctrl+S passes through to vim/tmux
+stty -ixon
+
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 
@@ -83,6 +86,14 @@ if [[ $platform == 'linux' && -z "$GUIX_LOCPATH" && -f "$HOME/.guix-profile/etc/
 	export GIT_SSL_CAINFO="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 	unset GUIX_PROFILE
 fi
+
+# Ensure system data dirs are reachable for KDE Plasma themes, icons, and
+# desktop shell packages.  Same guard as in ~/.zprofile — covers interactive
+# shells that weren't started as login shells (e.g. tmux panes, alacritty).
+case ":$XDG_DATA_DIRS:" in
+  *:/usr/share:*) ;;
+  *) export XDG_DATA_DIRS="${XDG_DATA_DIRS:+$XDG_DATA_DIRS:}/usr/local/share:/usr/share" ;;
+esac
 
 source $ZSH/oh-my-zsh.sh
 
