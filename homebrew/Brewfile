@@ -1,36 +1,35 @@
-tap "adoptopenjdk/openjdk"
-tap "anomalyco/tap"
-tap "auth0/auth0-cli"
-tap "azure/functions"
-tap "babashka/brew"
-tap "borkdude/brew"
-tap "buo/cask-upgrade"
-tap "candid82/brew"
-tap "clojure-lsp/brew"
-tap "clojure/tools"
-tap "codeclimate/formulae"
-tap "coursier/formulas"
-tap "d12frosted/emacs-plus"
-tap "dunglas/frankenphp"
-tap "eosio/eosio"
-tap "ethereum/ethereum"
-tap "github/gh"
-tap "hashicorp/tap"
-tap "heroku/brew"
-tap "homebrew-community/alpha"
-tap "ligolang/ligo", "https://gitlab.com/ligolang/ligo.git"
-tap "luckyframework/lucky"
-tap "microsoft/git"
-tap "minacle/chntpw"
-tap "mongodb/brew"
-tap "neovim/neovim"
-tap "nutcracker/tap"
-tap "rbenv/tap"
-tap "samritchie/forge"
-tap "serokell/tezos-packaging-stable", "https://github.com/serokell/tezos-packaging-stable.git"
-tap "shivammathur/php"
-tap "symfony-cli/tap"
-tap "vitorgalvao/tiny-scripts"
+tap "adoptopenjdk/openjdk", trusted: true
+tap "anomalyco/tap", trusted: true
+tap "auth0/auth0-cli", trusted: true
+tap "babashka/brew", trusted: true
+tap "borkdude/brew", trusted: true
+tap "buo/cask-upgrade", trusted: true
+tap "candid82/brew", trusted: true
+tap "clojure-lsp/brew", trusted: true
+tap "clojure/tools", trusted: true
+tap "coursier/formulas", trusted: true
+tap "d12frosted/emacs-plus", trusted: true
+tap "dunglas/frankenphp", trusted: true
+tap "eosio/eosio", trusted: true
+tap "ethereum/ethereum", trusted: true
+tap "github/gh", trusted: true
+tap "hashicorp/tap", trusted: true
+tap "heroku/brew", trusted: true
+tap "luckyframework/lucky", trusted: true
+tap "microsoft/git", trusted: true
+tap "minacle/chntpw", trusted: true
+tap "mint-lang/mint-lang", "https://github.com/mint-lang/homebrew-mint-lang.git", trusted: true
+tap "mongodb/brew", trusted: true
+tap "neovim/neovim", trusted: true
+tap "nutcracker/tap", trusted: true
+tap "qltysh-archive/formulae", "https://github.com/qltysh-archive/homebrew-formulae.git", trusted: true
+tap "rbenv/tap", trusted: true
+tap "samritchie/forge", trusted: true
+tap "serokell/tezos-packaging-stable", "https://github.com/serokell/tezos-packaging-stable.git", trusted: true
+tap "shivammathur/php", trusted: true
+tap "supabase/tap"
+tap "symfony-cli/tap", trusted: true
+tap "vitorgalvao/tiny-scripts", trusted: true
 tap "weavejester/brew"
 # Library for manipulating PNG images
 brew "libpng"
@@ -46,24 +45,30 @@ brew "pixman"
 brew "cairo"
 # OpenType text shaping engine
 brew "harfbuzz"
+# TIFF library and utilities
+brew "libtiff"
 # Development kit for the Java programming language
 brew "openjdk"
 # Java build tool
 brew "ant"
-# Asynchronous DNS library
-brew "c-ares"
+# Mozilla CA certificate store
+brew "ca-certificates"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# Asynchronous DNS library
+brew "c-ares"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
 # Next generation open source RPC library and framework
 brew "grpc"
+# Library for command-line editing
+brew "readline"
 # Clean C library for processing UTF-8 Unicode data
 brew "utf8proc"
 # Columnar in-memory analytics layer designed to accelerate big data
 brew "apache-arrow"
 # C library implementing the SSH2 protocol
 brew "libssh2"
-# Library for command-line editing
-brew "readline"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Record and share terminal sessions
@@ -74,6 +79,8 @@ brew "asdf"
 brew "dbus"
 # Automatic configure script builder
 brew "autoconf"
+# Collection of over 500 reusable autoconf macros
+brew "autoconf-archive"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # C parser in Python
@@ -110,7 +117,7 @@ brew "cdrtools"
 brew "chruby"
 # Thin wrapper around chruby to make it work with the Fish shell
 brew "chruby-fish"
-# Enables you to reproduce the CircleCI environment locally
+# Official command-line tool for CircleCI
 brew "circleci"
 # Readline wrapper: adds readline support to tools that lack it
 brew "rlwrap"
@@ -164,8 +171,6 @@ brew "docutils"
 brew "dolt"
 # Convert text between DOS, UNIX, and Mac formats
 brew "dos2unix"
-# .NET Core
-brew "dotnet"
 # Generate documentation for several programming languages
 brew "doxygen"
 # Asynchronous event library
@@ -230,6 +235,8 @@ brew "ghostscript"
 brew "gist"
 # Extensions to follow Vincent Driessen's branching model
 brew "git-flow"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Incremental merge for git
 brew "git-imerge"
 # Git extension for versioning large files
@@ -244,10 +251,10 @@ brew "libksba"
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew "go-task"
 # Apply a diff file to an original
 brew "gpatch"
-# Database of common MIME types
-brew "shared-mime-info"
 # Image processing tools collection
 brew "graphicsmagick"
 # Image manipulation
@@ -326,22 +333,26 @@ brew "luarocks"
 brew "lzlib"
 # Mac App Store command-line interface
 brew "mas"
+# Unified display of technical and tag data for audio/video
+brew "media-info"
 # High performance, distributed memory object caching system
 brew "memcached", restart_service: :changed
 # Uniform interface to a large number of hash algorithms
 brew "mhash"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Matroska media files manipulation tools
+brew "mkvtoolnix"
+# Whole-program, optimizing compiler for Standard ML
+brew "mlton"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
-# Protocol buffers (Google's data interchange format)
-brew "protobuf"
 # Remote terminal application
 brew "mosh"
 # Open source relational database management system
-brew "mysql", restart_service: :changed
+brew "mysql@8.4", restart_service: :changed, link: true
 # NCurses Disk Usage
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -382,12 +393,16 @@ brew "pygobject3"
 brew "pyqt"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Cross-platform application and UI framework
 brew "qt"
 # Messaging and streaming broker
 brew "rabbitmq"
 # State machine compiler
 brew "ragel"
+# Develop and deploy code with zero configuration
+brew "railway"
 # Simple and easy-to-use library to learn videogames programming
 brew "raylib"
 # Install various Ruby versions and implementations
@@ -406,6 +421,8 @@ brew "redis", restart_service: :changed
 brew "render"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI proxy to minimize LLM token consumption
+brew "rtk"
 # Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
 brew "ruby-install"
 # JVM-based programming language
@@ -416,6 +433,12 @@ brew "scalariform"
 brew "scalastyle"
 # Substitute for classic 'make' tool with autoconf/automake functionality
 brew "scons"
+# Database of common MIME types
+brew "shared-mime-info"
+# Custom parser and code formatter for Standard ML
+brew "smlfmt"
+# Compiler and programming system for Standard ML
+brew "smlnj", link: false
 # SOcket CAT: netcat on steroids
 brew "socat"
 # Tool for building source and injecting into docker images
@@ -489,7 +512,7 @@ brew "zsh-completions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
 # The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode"
+brew "anomalyco/tap/opencode", trusted: true
 # Build, manage and test your Auth0 integrations from the command line
 brew "auth0/auth0-cli/auth0"
 brew "babashka/brew/bbin"
@@ -506,12 +529,14 @@ brew "heroku/brew/heroku"
 brew "mongodb/brew/mongodb-community", link: false
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community@7.0"
+# Supabase CLI
+brew "supabase/tap/supabase", trusted: true
 # Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure
 brew "symfony-cli/tap/symfony-cli"
 # Quickly repair outdated/broken Casks from homebrew-cask
 brew "vitorgalvao/tiny-scripts/cask-repair"
 # A tool for formatting Clojure code
-brew "weavejester/brew/cljfmt"
+brew "weavejester/brew/cljfmt", trusted: true
 # Collaborative design tool with support for Sketch files
 cask "abstract"
 # GPU-accelerated terminal emulator
@@ -520,7 +545,6 @@ cask "alacritty"
 cask "alfred"
 # Tools for building Android applications
 cask "android-studio"
-# Control web-based media players with media keys
 cask "beardedspice"
 # Cross platform SQL editor and database management app
 cask "beekeeper-studio"
@@ -532,6 +556,8 @@ cask "chromedriver"
 cask "clipy"
 # Free app that makes your Internet safer
 cask "cloudflare-warp"
+# Brings the power of Copilot coding agent directly to your terminal
+cask "copilot-cli"
 # API documentation browser and code snippet manager
 cask "dash"
 # Browser for SQLite databases
@@ -542,10 +568,9 @@ cask "discord"
 cask "docker-desktop"
 # GNU Emacs text editor with patches for macOS
 cask "d12frosted/emacs-plus/emacs-plus-app"
-# Reimagine your terminal
-cask "fig"
 cask "font-fira-code"
 cask "font-intel-one-mono"
+cask "font-intone-mono-nerd-font"
 cask "font-jetbrains-mono"
 cask "font-sauce-code-pro-nerd-font"
 # Cross-platform Git credential storage for multiple hosting providers
@@ -556,8 +581,6 @@ cask "github"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
-# GraphQL IDE for better development workflows
-cask "graphql-playground"
 # Tool to optimise images to a smaller size
 cask "imageoptim"
 # HTTP and GraphQL Client
@@ -568,13 +591,10 @@ cask "iterm2"
 cask "kap"
 # Keyboard customiser
 cask "karabiner-elements"
-# Password manager application and digital vault
-cask "keeper-password-manager"
 # Agent-centric IDE with spec-driven development
 cask "kiro"
 # Noise cancelling application
 cask "krisp"
-# IDE
 cask "lighttable"
 # Software for Logitech devices
 cask "logi-options+"
@@ -590,12 +610,12 @@ cask "mongodb-compass"
 cask "mysqlworkbench"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Administration and development platform for PostgreSQL
 cask "pgadmin4"
 # Home media server
 cask "plex-media-server"
-# Timer application
-cask "pomotroid"
 # GUI client for PostgreSQL databases
 cask "postico"
 # Collaboration platform for API development
@@ -612,6 +632,7 @@ cask "simplenote"
 cask "skyfonts"
 # Team communication and collaboration software
 cask "slack"
+cask "smlnj"
 # Graphical client for Git version control
 cask "sourcetree"
 # Music streaming service
@@ -653,17 +674,21 @@ mas "MD Viewer", id: 6752493034
 mas "Microsoft To Do", id: 1274495053
 mas "Numbers", id: 361304891
 mas "PDFOptim", id: 621276561
+mas "Prime Video", id: 545519333
 mas "Speedtest", id: 1153157709
 mas "UpNote", id: 1398373917
 mas "Xcode", id: 497799835
 vscode "aaron-bond.better-comments"
 vscode "alexandernanberg.horizon-theme-vscode"
 vscode "anthropic.claude-code"
+vscode "azdavis.millet"
 vscode "bbenoist.nix"
 vscode "betterthantomorrow.calva"
 vscode "biomejs.biome"
+vscode "bmewburn.vscode-intelephense-client"
 vscode "bradlc.vscode-tailwindcss"
 vscode "castwide.solargraph"
+vscode "chenglou92.rescript-vscode"
 vscode "chiragpat.vscode-glimmer"
 vscode "davidanson.vscode-markdownlint"
 vscode "donjayamanne.githistory"
@@ -671,16 +696,20 @@ vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
 vscode "gargakshit.theme-alabaster-dark"
 vscode "github.codespaces"
-vscode "github.copilot-chat"
 vscode "github.github-vscode-theme"
 vscode "github.vscode-github-actions"
-vscode "gruntfuggly.todo-tree"
+vscode "gleam.gleam"
 vscode "hbenl.vscode-test-explorer"
+vscode "humao.rest-client"
+vscode "ionide.ionide-fsharp"
 vscode "jakebecker.elixir-ls"
 vscode "karunamurti.haml"
 vscode "mbessey.vscode-rufo"
 vscode "mechatroner.rainbow-csv"
 vscode "misogi.ruby-rubocop"
+vscode "ms-dotnettools.csdevkit"
+vscode "ms-dotnettools.csharp"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
 vscode "ms-python.debugpy"
 vscode "ms-python.isort"
 vscode "ms-python.python"
@@ -698,9 +727,11 @@ vscode "ms-vscode.test-adapter-converter"
 vscode "nomicfoundation.hardhat-solidity"
 vscode "ocamllabs.ocaml-platform"
 vscode "octref.vetur"
+vscode "paolodellepiane.fantomas-fmt"
 vscode "pgourlain.erlang"
 vscode "phoenixframework.phoenix"
 vscode "prisma.prisma"
+vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
 vscode "shopify.ruby-lsp"
 vscode "syler.sass-indented"
@@ -712,6 +743,11 @@ vscode "vscode-icons-team.vscode-icons"
 vscode "vue.volar"
 vscode "waderyan.gitblame"
 vscode "whatwedo.twig"
+go "github.com/ddollar/forego"
+go "github.com/ericchiang/pup"
+cargo "popup-gui"
 cargo "rustlings"
 cargo "typos-cli"
+uv "mempalace"
 uv "specify-cli"
+npm "corepack"
