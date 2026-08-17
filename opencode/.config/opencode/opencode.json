@@ -2,6 +2,14 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
     "@zhafron/opencode-memory-md",
-    "@different-ai/opencode-browser"
-  ]
+    "@different-ai/opencode-browser",
+    "@dietrichgebert/ponytail"
+  ],
+  "mcp": {
+    "mempalace": {
+      "type": "local",
+      "command": ["/Users/kevin/.local/bin/mempalace-mcp"],
+      "enabled": true
+    }
+  }
 }

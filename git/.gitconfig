@@ -23,8 +23,9 @@
 [commit]
 	template = ~/.gitmessage
 [credential]
-	helper = /usr/local/share/gcm-core/git-credential-manager
 	credentialStore = cache
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [diff]
   tool = difftastic
 	algorithm = histogram
@@ -48,3 +49,10 @@
 	defaultBranch = main
 [http]
 	postBuffer = 157286400
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential "https://dev.azure.com"]
+	useHttpPath = true

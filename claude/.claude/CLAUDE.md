@@ -5,6 +5,7 @@ Global guidance for Claude Code across all projects.
 ## Project Conventions
 
 - Follow existing patterns in the codebase for consistency (e.g., path construction methods)
+- Prefer map-based arguments over positional parameters for functions with 4+ parameters; improves readability and avoids argument order errors
 
 ## Development Tools & Git
 
