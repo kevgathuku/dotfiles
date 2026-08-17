@@ -96,9 +96,6 @@ if [[ $platform == 'linux' ]]; then
 	export DENO_INSTALL="$HOME/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
 
-	# kantox
-	alias ecs_cli="$HOME/workspace/infrastructure-ecs/cli/bin/dcli"
-
   # Others
   export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
@@ -220,7 +217,7 @@ export EDITOR=`which vim`
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# Add Go Lang to PATH 
+# Add Go Lang to PATH
 export PATH=$PATH:/usr/local/go/bin
 
 # Custom npm global PATH
@@ -271,8 +268,8 @@ export GPG_TTY=$(tty)
 export PIPENV_VENV_IN_PROJECT=1
 
 ###-tns-completion-start-###
-if [ -f /Users/kevin/.tnsrc ]; then 
-    source /Users/kevin/.tnsrc 
+if [ -f /Users/kevin/.tnsrc ]; then
+    source /Users/kevin/.tnsrc
 fi
 ###-tns-completion-end-###
 
