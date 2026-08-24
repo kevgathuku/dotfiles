@@ -177,6 +177,11 @@ set splitright
 " Remap leader to Space
 let mapleader = "\<Space>"
 
+" Save with Ctrl+S (normal, insert, visual)
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <C-o>:w<CR>
+vnoremap <C-s> <C-c>:w<gv<CR>
+
 " Use leader + q for :Bdelete
 :nnoremap <Leader>q :Bdelete<CR>
 
