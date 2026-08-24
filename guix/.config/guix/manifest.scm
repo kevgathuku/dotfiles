@@ -87,6 +87,7 @@
     ;; Documentation
     ;; "hugo"  ; not in guix
     "graphviz"
+    "grip"
 
     ;; GNU Coreutils
     "coreutils"
