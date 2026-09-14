@@ -61,14 +61,14 @@ brew "c-ares"
 brew "protobuf"
 # Next generation open source RPC library and framework
 brew "grpc"
-# Library for command-line editing
-brew "readline"
 # Clean C library for processing UTF-8 Unicode data
 brew "utf8proc"
 # Columnar in-memory analytics layer designed to accelerate big data
 brew "apache-arrow"
 # C library implementing the SSH2 protocol
 brew "libssh2"
+# Library for command-line editing
+brew "readline"
 # Download with resuming and segmented downloading
 brew "aria2"
 # Record and share terminal sessions
@@ -193,10 +193,6 @@ brew "erlang"
 brew "elixir"
 # Functional programming language for building browser-based GUIs
 brew "elm"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
-# GNU Emacs text editor
-brew "emacs"
 # Command-line tool to interact with exercism.io
 brew "exercism"
 # Perl lib for reading and writing EXIF metadata
@@ -245,6 +241,8 @@ brew "git-lfs"
 brew "gnu-sed"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
 # X.509 and CMS library
 brew "libksba"
 # GNU Privacy Guard (OpenPGP)
@@ -539,8 +537,6 @@ brew "vitorgalvao/tiny-scripts/cask-repair"
 brew "weavejester/brew/cljfmt", trusted: true
 # Collaborative design tool with support for Sketch files
 cask "abstract"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
 # Tools for building Android applications
@@ -550,8 +546,6 @@ cask "beardedspice"
 cask "beekeeper-studio"
 # Web browser focusing on privacy
 cask "brave-browser"
-# Automated testing of webapps for Google Chrome
-cask "chromedriver"
 # Clipboard extension app
 cask "clipy"
 # Free app that makes your Internet safer
@@ -566,8 +560,6 @@ cask "db-browser-for-sqlite"
 cask "discord"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
-# GNU Emacs text editor with patches for macOS
-cask "d12frosted/emacs-plus/emacs-plus-app"
 cask "font-fira-code"
 cask "font-intel-one-mono"
 cask "font-intone-mono-nerd-font"
@@ -602,8 +594,6 @@ cask "logi-options+"
 cask "loom"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
-# Meet, chat, call, and collaborate in just one place
-cask "microsoft-teams"
 # Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
 # Visual tool to design, develop and administer MySQL servers
@@ -649,8 +639,6 @@ cask "telegram"
 cask "temurin"
 # VPN client for secure internet access and private browsing
 cask "tunnelbear"
-# Free and open-source OpenVPN client
-cask "tunnelblick"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
@@ -659,8 +647,6 @@ cask "vlc"
 cask "webtorrent"
 # Native desktop client for WhatsApp
 cask "whatsapp"
-# Browse & Control phone on PC, Screen Fusion for iOS & Android
-cask "wormhole"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
 # Multiplayer code editor
@@ -694,6 +680,7 @@ vscode "davidanson.vscode-markdownlint"
 vscode "donjayamanne.githistory"
 vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
+vscode "elmtooling.elm-ls-vscode"
 vscode "gargakshit.theme-alabaster-dark"
 vscode "github.codespaces"
 vscode "github.github-vscode-theme"
@@ -704,6 +691,7 @@ vscode "humao.rest-client"
 vscode "ionide.ionide-fsharp"
 vscode "jakebecker.elixir-ls"
 vscode "karunamurti.haml"
+vscode "kvothe.acadia-syntax"
 vscode "mbessey.vscode-rufo"
 vscode "mechatroner.rainbow-csv"
 vscode "misogi.ruby-rubocop"
@@ -749,5 +737,6 @@ cargo "popup-gui"
 cargo "rustlings"
 cargo "typos-cli"
 uv "mempalace"
-uv "specify-cli"
+uv "specify-cli", source: "git+https://github.com/github/spec-kit.git@v1.0.4"
+npm "@nanonets/graft"
 npm "corepack"
