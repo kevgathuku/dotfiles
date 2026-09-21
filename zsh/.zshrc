@@ -77,14 +77,20 @@ fi
 # e.g. tmux panes). Login shells do this in ~/.zprofile. The C-compiler
 # include/library paths and CMAKE_PREFIX_PATH are cleared so system-compiler
 # builds keep using system C libraries (Guix's would break e.g. ruby 3.0.7).
-if [[ $platform == 'linux' && -z "$GUIX_LOCPATH" && -f "$HOME/.guix-profile/etc/profile" ]]; then
-	GUIX_PROFILE="$HOME/.guix-profile"
-	. "$GUIX_PROFILE/etc/profile"
-	export PATH="$HOME/.config/guix/current/bin${PATH:+:$PATH}"
-	unset LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH OBJC_INCLUDE_PATH OBJCPLUS_INCLUDE_PATH CMAKE_PREFIX_PATH
-	export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
-	export GIT_SSL_CAINFO="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
-	unset GUIX_PROFILE
+# glibc-locales only declares GUIX_LOCPATH as a native search-path, so the
+# profile itself never exports it — set it here too, otherwise Guix-linked
+# binaries (e.g. redis-server) fail with "invalid locale name".
+if [[ $platform == 'linux' && -z "$GUIX_LOCPATH" ]]; then
+	if [[ -f "$HOME/.guix-profile/etc/profile" ]]; then
+		GUIX_PROFILE="$HOME/.guix-profile"
+		. "$GUIX_PROFILE/etc/profile"
+		export PATH="$HOME/.config/guix/current/bin${PATH:+:$PATH}"
+		unset LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH OBJC_INCLUDE_PATH OBJCPLUS_INCLUDE_PATH CMAKE_PREFIX_PATH
+		export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+		export GIT_SSL_CAINFO="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+		unset GUIX_PROFILE
+	fi
+	[[ -d "$HOME/.guix-profile/lib/locale" ]] && export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 fi
 
 # Ensure system data dirs are reachable for KDE Plasma themes, icons, and
@@ -157,7 +163,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+export LANG=C.UTF-8
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"

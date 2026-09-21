@@ -12,6 +12,13 @@ if [[ "$(uname)" == 'Linux' ]]; then
 		unset LIBRARY_PATH C_INCLUDE_PATH CPLUS_INCLUDE_PATH OBJC_INCLUDE_PATH OBJCPLUS_INCLUDE_PATH CMAKE_PREFIX_PATH
 		export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 		export GIT_SSL_CAINFO="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+		# glibc-locales only declares GUIX_LOCPATH as a native search-path, so
+		# the profile itself never exports it — set it here so Guix-linked
+		# binaries resolve locales, and so .zshrc's sentinel sees it set and
+		# skips re-sourcing the profile in login-interactive shells.
+		if [[ -z "$GUIX_LOCPATH" && -d "$HOME/.guix-profile/lib/locale" ]]; then
+			export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+		fi
 	fi
 	unset GUIX_PROFILE
 fi
