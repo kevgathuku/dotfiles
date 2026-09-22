@@ -1,0 +1,22 @@
+[Unit]
+Description=Redis Server (Guix, port 6379)
+Documentation=https://redis.io/docs/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# %h tracks ~/.guix-profile across `guix package -u` store-path changes.
+# glibc-locales only declares GUIX_LOCPATH as a native search-path, so the
+# profile never exports it — set it here, otherwise redis aborts with
+# "Failed to configure LOCALE for invalid locale name".
+# NOTE: Type=simple, not notify — the Guix redis build has no systemd
+# notification support, so it would never send READY and `start` would hang.
+Type=simple
+ExecStart=%h/.guix-profile/bin/redis-server --port 6379 --dir %h/.local/share/redis --dbfilename dump.rdb --logfile %h/.local/share/redis/redis.log --daemonize no
+Environment=GUIX_LOCPATH=%h/.guix-profile/lib/locale
+Environment=LANG=C.UTF-8
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
