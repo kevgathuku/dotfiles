@@ -1,0 +1,8 @@
+{
+  "lastChangelogVersion": "0.87.1",
+  "theme": "dark",
+  "hideThinkingBlock": false,
+  "defaultProvider": "opencode-go",
+  "defaultModel": "muse-spark-1.3-contributor",
+  "defaultThinkingLevel": "medium"
+}
