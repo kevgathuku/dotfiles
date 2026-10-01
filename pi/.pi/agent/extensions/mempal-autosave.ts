@@ -20,22 +20,23 @@
  * - MEMPAL_AUTOSAVE_ON_SHUTDOWN (default "1"): "0" disables the ingest.
  * - MEMPAL_AUTOSAVE_WING: wing name override. Default derives from cwd
  *   basename with non-alphanumerics -> "_", matching mempal's convention.
- * - MEMPAL_BIN: mempal binary (default /Users/kevin/.cargo/bin/mempal).
+ * - MEMPAL_BIN: mempal binary (default `$HOME/.cargo/bin/mempal`).
  *
  * Failures are silent by design: memory must never interrupt the session.
  */
 
 import { execFile } from "node:child_process";
+import * as os from "node:os";
 import * as path from "node:path";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
 const TURNS_BETWEEN_TOUCHES =
 	Number.parseInt(process.env.MEMPAL_AUTOSAVE_TURNS ?? "0", 10);
 const INGEST_ON_SHUTDOWN = (process.env.MEMPAL_AUTOSAVE_ON_SHUTDOWN ?? "1") !== "0";
-const MEMPAL = process.env.MEMPAL_BIN || "/Users/kevin/.cargo/bin/mempal";
+const MEMPAL = process.env.MEMPAL_BIN || path.join(os.homedir(), ".cargo", "bin", "mempal");
 const INGEST_TIMEOUT_MS = 300_000;
 const TOUCH_TIMEOUT_MS = 30_000;
-const PI_SESSIONS_ROOT = process.env.MEMPAL_AUTOSAVE_SESSIONS_DIR || "/Users/kevin/.pi/agent/sessions";
+const PI_SESSIONS_ROOT = process.env.MEMPAL_AUTOSAVE_SESSIONS_DIR || path.join(os.homedir(), ".pi", "agent", "sessions");
 
 function wingForDirectory(dir: string): string {
 	const override = process.env.MEMPAL_AUTOSAVE_WING;
@@ -110,7 +111,7 @@ export default function mempalAutosave(pi: ExtensionAPI) {
 		try {
 			const wing = wingForDirectory(ctx.cwd);
 			// Mine the session transcripts for this cwd. Pi stores them in
-			// /Users/kevin/.pi/agent/sessions/<encoded-cwd>/*.jsonl. Mempal
+			// `$HOME/.pi/agent/sessions/<encoded-cwd>/*.jsonl`. Mempal
 			// ingest walks any dir and dedupes by content hash, so this is
 			// safe to re-run on every shutdown.
 			const sessionDir = sessionDirFor(ctx.cwd);
