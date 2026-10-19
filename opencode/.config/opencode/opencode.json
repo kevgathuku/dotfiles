@@ -6,9 +6,9 @@
     "@dietrichgebert/ponytail"
   ],
   "mcp": {
-    "mempalace": {
+    "mempal": {
       "type": "local",
-      "command": ["/Users/kevin/.local/bin/mempalace-mcp"],
+      "command": ["/Users/kevin/.cargo/bin/mempal", "serve", "--mcp"],
       "enabled": true
     }
   }
