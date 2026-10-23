@@ -12,6 +12,7 @@ return {
         clojurec = { "cljfmt" },
         fsharp = { "fantomas" },
         ocaml = { "ocamlformat" },
+        python = { "black" },
       },
     },
   },
