@@ -30,6 +30,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'moll/vim-bbye'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-projectionist'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -39,6 +40,9 @@ Plug 'dense-analysis/ale'
 Plug 'svermeulen/vim-cutlass'
 Plug 'vim-test/vim-test'
 Plug 'preservim/nerdtree'
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 call plug#end()
 
