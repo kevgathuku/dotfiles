@@ -113,9 +113,6 @@ if [[ $platform == 'linux' ]]; then
 	export DENO_INSTALL="$HOME/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
 
-  # Others
-  export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-
   # pnpm
   export PNPM_HOME="$HOME/.local/share/pnpm"
 elif [[ $platform == 'macos' ]]; then
@@ -152,6 +149,8 @@ esac
 
 # Add Cargo Packages to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
+# Solana / Agave installer location (same on Linux and macOS)
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # User configuration
