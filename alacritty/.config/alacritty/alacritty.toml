@@ -2,14 +2,17 @@
 [env]
 term = "xterm-256color"
 WINIT_X11_SCALE_FACTOR = "1"
+[window]
+option_as_alt = "Both"
+
 [font]
 size = 14.5
 normal = { family = "IntoneMono Nerd Font", style = "Regular" }
 
 [keyboard]
 bindings = [
-  { key = "Right", mods = "Alt", chars = "\u001BF" },
-  { key = "Left", mods = "Alt", chars = "\u001BB" },
+  { key = "Right", mods = "Alt", chars = "\u001Bf" },
+  { key = "Left", mods = "Alt", chars = "\u001Bb" },
   { key = "D", mods = "Alt", chars = "\u001Bd" },
 ]
 
